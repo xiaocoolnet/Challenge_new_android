@@ -70,4 +70,12 @@ public interface UserNetConstant extends NetBaseConstant {
     public final static String CANCELFAVORITE = NET_BASE_HOST + "&a=cancelfavorite";
     //获取字典内容
     public final static String GETDICTIONARYLIST = NET_BASE_HOST + "&a=getDictionaryList";
+    //获取我的简历
+    public final static String GETMYRESUME = NET_BASE_HOST + "&a=getMyResume";
+    //获取我的优势
+    public final static String GETMYADVANTAGE = NET_BASE_HOST + "&a=getMyAdvantage";
+    //获取我的求职意向
+    public final static String GETMYINTENSION = NET_BASE_HOST + "&a=getMyIntension";
+    //获取我的工作实习经历
+    public final static String GETMYWORKLIST = NET_BASE_HOST + "&a=getMyWorkList";
 }

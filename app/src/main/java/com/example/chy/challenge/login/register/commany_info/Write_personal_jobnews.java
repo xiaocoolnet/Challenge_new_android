@@ -39,6 +39,7 @@ import org.json.JSONObject;
 
 public class Write_personal_jobnews extends Activity implements View.OnClickListener{
     private static final int PUBLISHWORK = 1;
+    private static final int GETMYWORKLIST = 2;
     private WaveView back,commany_name,commany_industry,Position_type,skills_show,work_time,submit_job_experice;
     private EditText et_describe;
     private TextView work_tv_commany,tv_commany_industry,tv_Position_type,tv_skills_show,tv_work_time,look_other_personal,txtnum,textview;
@@ -99,6 +100,27 @@ public class Write_personal_jobnews extends Activity implements View.OnClickList
                             }
                         }).start();
                         dialog.dismiss();
+                        Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case GETMYWORKLIST:
+                    if (msg.obj != null){
+                        String result = (String) msg.obj;
+                        try {
+                            JSONObject json = new JSONObject(result);
+                            if ("success".equals(json.optString("status"))){
+                                JSONObject josnobj = json.getJSONObject("data");
+                                work_tv_commany.setText(josnobj.getString("company_name")+"");
+                                tv_Position_type.setText(josnobj.getString("jobtype")+"");
+                                tv_commany_industry.setText(josnobj.getString("company_industry")+"");
+                                tv_skills_show.setText(josnobj.getString("skill")+"");
+                                tv_work_time.setText(josnobj.getString("work_period")+"");
+                                et_describe.setText(josnobj.getString("content")+"");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
                         Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
                     }
                     break;
@@ -221,9 +243,9 @@ public class Write_personal_jobnews extends Activity implements View.OnClickList
                 Toast.makeText(mContext,"此功能暂未开放", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.submit_job_experice://提交
-//                submitjob();
-                intent = new Intent(mContext,Register_Mine_advantage.class);
-                startActivity(intent);
+                submitjob();
+//                intent = new Intent(mContext,Register_Mine_advantage.class);
+//                startActivity(intent);
                 break;
             case R.id.work_et_describe:
                 et_describe.setFocusable(true);
@@ -287,7 +309,17 @@ public class Write_personal_jobnews extends Activity implements View.OnClickList
         if (Public_static_all.isJobD&&Public_static_all.isJobd){//公司行业
             work_tv_commany.setText(info.getCompany_nameone());
         }
+        getinfo();
     }
+
+    private void getinfo() {
+        if (NetBaseUtils.isConnnected(mContext)) {
+            new UserRequest(mContext, handler).GETMYWORKLIST(infoBean.getUserid(), GETMYWORKLIST);
+        } else {
+            Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void isJob(boolean isJob){
         Public_static_all.isJobA = isJob;
         Public_static_all.isJoba = isJob;

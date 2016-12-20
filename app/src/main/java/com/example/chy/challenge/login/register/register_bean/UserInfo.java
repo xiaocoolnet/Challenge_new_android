@@ -72,6 +72,35 @@ public class UserInfo{
     private String personal_type;//个人期望职位
     private String personal_industry;//个人期望行业
 
+    private String projectname;
+    private String projectdescrip;
+
+    public String getProjectname() {
+        if("".equals(mySharedPreferences.getString("Projectname","").toString())){
+            return "";
+        }
+        return mySharedPreferences.getString("Projectname","").toString();
+    }
+
+    public void setProjectname(String projectname) {
+        editor.putString("Projectname",projectname);
+        editor.commit();
+        this.projectname = projectname;
+    }
+
+    public String getProjectdescrip() {
+        if("".equals(mySharedPreferences.getString("Projectdescrip","").toString())){
+            return "";
+        }
+        return mySharedPreferences.getString("Projectdescrip","").toString();
+    }
+
+    public void setProjectdescrip(String projectdescrip) {
+        editor.putString("Projectdescrip",projectdescrip);
+        editor.commit();
+        this.projectdescrip = projectdescrip;
+    }
+
     public String getPersonal_type() {
         if("".equals(mySharedPreferences.getString("Personal_type","").toString())){
             return "";

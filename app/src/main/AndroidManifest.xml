@@ -67,6 +67,7 @@
         <activity android:name=".Findpersoanl.mine.Mine_vipinfo"></activity>
         <activity android:name=".login.register.commany_info.Search_dictionary_child"></activity>
         <activity android:name=".login.register.commany_info.location.ActivityAddlocation"></activity>
+        <activity android:name=".findcommany.resume.Write_personal_prohect"></activity>
     </application>
 
 </manifest>

@@ -584,6 +584,78 @@ public class UserRequest {
         }.start();
     }
     /**
+     * 获取我的简历
+     */
+    public void GETMYRESUME(final String userid,final int KEY){
+        new Thread(){
+            Message msg = Message.obtain();
+            @Override
+            public void run() {
+                List<NameValuePair> parmas = new ArrayList<NameValuePair>();
+                parmas.add(new BasicNameValuePair("userid",userid));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.GETMYRESUME,parmas,mContext);
+                Log.i("获取我的简历","--------------->"+result);
+                msg.what = KEY;
+                msg.obj = result;
+                handler.sendMessage(msg);
+            }
+        }.start();
+    }
+    /**
+     * 获取我的优势
+     */
+    public void GETMYADVANTAGE(final String userid,final int KEY){
+        new Thread(){
+            Message msg = Message.obtain();
+            @Override
+            public void run() {
+                List<NameValuePair> parmas = new ArrayList<NameValuePair>();
+                parmas.add(new BasicNameValuePair("userid",userid));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.GETMYADVANTAGE,parmas,mContext);
+                Log.i("获取我的优势","--------------->"+result);
+                msg.what = KEY;
+                msg.obj = result;
+                handler.sendMessage(msg);
+            }
+        }.start();
+    }
+    /**
+     * 获取我的求职意向
+     */
+    public void GETMYINTENSION(final String userid,final int KEY){
+        new Thread(){
+            Message msg = Message.obtain();
+            @Override
+            public void run() {
+                List<NameValuePair> parmas = new ArrayList<NameValuePair>();
+                parmas.add(new BasicNameValuePair("userid",userid));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.GETMYINTENSION,parmas,mContext);
+                Log.i("获取我的求职意向","--------------->"+result);
+                msg.what = KEY;
+                msg.obj = result;
+                handler.sendMessage(msg);
+            }
+        }.start();
+    }
+    /**
+     * 获取我的工作实习经历
+     */
+    public void GETMYWORKLIST(final String userid,final int KEY){
+        new Thread(){
+            Message msg = Message.obtain();
+            @Override
+            public void run() {
+                List<NameValuePair> parmas = new ArrayList<NameValuePair>();
+                parmas.add(new BasicNameValuePair("userid",userid));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.GETMYWORKLIST,parmas,mContext);
+                Log.i("获取我的工作实习经历","--------------->"+result);
+                msg.what = KEY;
+                msg.obj = result;
+                handler.sendMessage(msg);
+            }
+        }.start();
+    }
+    /**
      * 获取我的投递记录
      */
     public void GETFAVORITE(final String userid,final String type,final int KEY){

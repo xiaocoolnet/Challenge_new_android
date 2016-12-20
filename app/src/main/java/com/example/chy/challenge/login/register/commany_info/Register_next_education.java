@@ -191,9 +191,9 @@ public class Register_next_education extends Activity implements View.OnClickLis
                 finish();
                 break;
             case R.id.resume_education_next:
-//                updatasubmit();
-                intent = new Intent(mContext,Write_personal_jobnews.class);
-                startActivity(intent);
+                updatasubmit();
+//                intent = new Intent(mContext,Write_personal_jobnews.class);
+//                startActivity(intent);
                 break;
             case R.id.resume_education:
                 education.showAsDropDown(textview_pop);

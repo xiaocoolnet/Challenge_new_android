@@ -337,4 +337,10 @@
         </LinearLayout>
         </ScrollView>
         </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_1"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/textview"
+        />
 </RelativeLayout>

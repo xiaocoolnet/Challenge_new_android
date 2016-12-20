@@ -35,6 +35,7 @@ import org.json.JSONObject;
 
 public class Register_Mine_intention extends Activity implements View.OnClickListener{
     private static final int PUBLISHINTENSION = 1;
+    private static final int GETMYINTENSION = 2;
     private Context mContext;
     private UserInfoBean infoBean;
     private UserInfo info;
@@ -94,6 +95,27 @@ public class Register_Mine_intention extends Activity implements View.OnClickLis
                             }
                         }).start();
                         dialog.dismiss();
+                        Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case GETMYINTENSION:
+                    if (msg.obj != null){
+                        String result = (String) msg.obj;
+                        try {
+                            JSONObject json = new JSONObject(result);
+                            if ("success".equals(json.optString("status"))){
+                                JSONObject josnobj = json.getJSONObject("data");
+                                tv_job_nature.setText(josnobj.getString("work_property")+"");
+                                tv_job_location.setText(josnobj.getString("address").substring(0,2)+"");
+                                tv_job_type.setText(josnobj.getString("position_type")+"");
+                                tv_industry_type.setText(josnobj.getString("categories")+"");
+                                tv_want_salary.setText(josnobj.getString("wantsalary")+"");
+                                tv_job_state.setText(josnobj.getString("jobstate")+"");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
                         Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
                     }
                     break;
@@ -158,9 +180,9 @@ public class Register_Mine_intention extends Activity implements View.OnClickLis
                 finish();
                 break;
             case R.id.intention_submit:
-//                submitview();
-                intent = new Intent(mContext,SalaryMain.class);
-                startActivity(intent);
+                submitview();
+//                intent = new Intent(mContext,SalaryMain.class);
+//                startActivity(intent);
                 //提交
                 break;
             case R.id.intention_job_nature://工作性质
@@ -232,7 +254,17 @@ public class Register_Mine_intention extends Activity implements View.OnClickLis
         }else if (Public_static_all.isintenttionB&&Public_static_all.isintenttionb){
             tv_industry_type.setText(info.getPersonal_industry()+"");
         }
+        getinfo();
     }
+
+    private void getinfo() {
+        if (NetBaseUtils.isConnnected(mContext)) {
+            new UserRequest(mContext, handler).GETMYINTENSION(infoBean.getUserid(), GETMYINTENSION);
+        } else {
+            Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private void isJob(boolean isJob){
         Public_static_all.isintenttionA = isJob;
         Public_static_all.isintenttiona = isJob;

@@ -326,6 +326,8 @@ public class Register_Commany_info extends Activity implements View.OnClickListe
         tv_weibo = (TextView) findViewById(R.id.commany_tv_weibo);
         rbtn_woman = (RadioButton) findViewById(R.id.commany_rbtn_woman);
         rbtn_man = (RadioButton) findViewById(R.id.commany_rbtn_man);
+        // 显示图片的配置
+        options = new DisplayImageOptions.Builder().showImageOnLoading(R.color.gray).showImageOnFail(R.color.gray).cacheInMemory(true).cacheOnDisc(true).build();
         textview = (TextView) findViewById(R.id.textview);
 
         relevance_submit = (WaveView) findViewById(R.id.company_relevance_submit);

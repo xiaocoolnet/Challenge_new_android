@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Path;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -19,13 +18,12 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.chy.challenge.Findpersoanl.TalentMain;
 import com.example.chy.challenge.NetInfo.NetBaseConstant;
 import com.example.chy.challenge.NetInfo.UserRequest;
 import com.example.chy.challenge.R;
-import com.example.chy.challenge.Findpersoanl.TalentMain;
 import com.example.chy.challenge.Utils.NetBaseUtils;
 import com.example.chy.challenge.button.Public_static_all;
-import com.example.chy.challenge.button.RevealButton;
 import com.example.chy.challenge.button.RoundImageView;
 import com.example.chy.challenge.button.WaveView;
 import com.example.chy.challenge.login.Login;
@@ -52,12 +50,11 @@ public class Register_personal_info extends Activity implements View.OnClickList
     private static final int KEY = 4;
     private static final int SAVEKEY = 5;
     private static final int GETMYINFO = 6;
-    private WaveView back, personal_head_avater, personal_real_name, persoanl_mine_position, personal_mine_email, personal_current_company, personal_relevance_QQ, personal_relevance_weixin, personal_relevance_weibo;
+    private WaveView back, personal_relevance_submit,personal_head_avater, personal_real_name, persoanl_mine_position, personal_mine_email, personal_current_company, personal_relevance_QQ, personal_relevance_weixin, personal_relevance_weibo;
     private Personal_camera Pcamear;
-    private RevealButton personal_relevance_submit;
     private RoundImageView roundimage;
     private Activity mactivity;
-    private String path, pagetype, filepath = "/sdcard/myheader", picname = "newpic", head;
+    private String path, pagetype, filepath = "/sdcard/myheader", picname = "newpic", head,email="" ;
     private ImageLoader imageLoader = ImageLoader.getInstance();
     private DisplayImageOptions options;
     private Intent intent = new Intent(), intentpage;
@@ -148,7 +145,7 @@ public class Register_personal_info extends Activity implements View.OnClickList
                             }
                         }).start();
                         dialog.dismiss();
-                        Toast.makeText(mactivity, R.string.net_error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mactivity, "3", Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case GETMYINFO:
@@ -249,28 +246,28 @@ public class Register_personal_info extends Activity implements View.OnClickList
         pagetype = intentpage.getStringExtra("pagetype");
         getinfo();
         if ("login0".equals(pagetype)||"register".equals(pagetype)) {
-            if (Public_static_all.iscompanyA&&Public_static_all.iscompanya){
+            if (Public_static_all.iscompanyA&& Public_static_all.iscompanya){
                 imageLoader.displayImage(NetBaseConstant.NET_HOST + "/" + info.getPhoto(), roundimage, options);
             }
-            if (Public_static_all.iscompanyB&&Public_static_all.iscompanyb){
+            if (Public_static_all.iscompanyB&& Public_static_all.iscompanyb){
                 tv_realname.setText(info.getRealname());
             }
-            if (Public_static_all.iscompanyC&&Public_static_all.iscompanyc){
+            if (Public_static_all.iscompanyC&& Public_static_all.iscompanyc){
                 tv_position.setText(info.getMyjob());
             }
-            if (Public_static_all.iscompanyD&&Public_static_all.iscompanyd){
+            if (Public_static_all.iscompanyD&& Public_static_all.iscompanyd){
                 tv_email.setText(info.getEmail());
             }
-            if (Public_static_all.iscompanyE&&Public_static_all.iscompanye){
+            if (Public_static_all.iscompanyE&& Public_static_all.iscompanye){
                 tv_company.setText(info.getCompany());
             }
-            if (Public_static_all.iscompanyF&&Public_static_all.iscompanyf){
+            if (Public_static_all.iscompanyF&& Public_static_all.iscompanyf){
                 tv_qq.setText(info.getQq());
             }
-            if (Public_static_all.iscompanyG&&Public_static_all.iscompanyg){
+            if (Public_static_all.iscompanyG&& Public_static_all.iscompanyg){
                 tv_weixin.setText(info.getWeixin());
             }
-            if (Public_static_all.iscompanyH&&Public_static_all.iscompanyh){
+            if (Public_static_all.iscompanyH&& Public_static_all.iscompanyh){
                 tv_weibo.setText(info.getWeibo());
             }
         }else if ("company".equals(pagetype)){
@@ -320,7 +317,7 @@ public class Register_personal_info extends Activity implements View.OnClickList
         personal_relevance_weibo = (WaveView) findViewById(R.id.personal_relevance_weibo);//微博关联
         tv_weibo = (TextView) findViewById(R.id.personal_tv_weibo);
         personal_relevance_weibo.setOnClickListener(this);
-        personal_relevance_submit = (RevealButton) findViewById(R.id.personal_relevance_submit);//保存
+        personal_relevance_submit = (WaveView) findViewById(R.id.personal_relevance_submit);//保存
         personal_relevance_submit.setOnClickListener(this);
         roundimage = (RoundImageView) findViewById(R.id.personal_head_avater_rundimage);
         // 显示图片的配置
@@ -394,34 +391,39 @@ public class Register_personal_info extends Activity implements View.OnClickList
                 overridePendingTransition(R.anim.activity_int_left, R.anim.activity_out_top);
                 break;
             case R.id.personal_relevance_submit://提交
-                Intent intent = new Intent(mactivity, TalentMain.class);
-                intent.putExtra("pagetype", pagetype);
-                startActivity(intent);
-                finish();
-//                getsubmit();
+//                Intent intent = new Intent(mactivity, TalentMain.class);
+//                intent.putExtra("pagetype", pagetype);
+//                startActivity(intent);
+//                finish();
+                getsubmit();
                 break;
         }
     }
 
     private void getsubmit() {
-        if (path == null && path.length() <= 0) {
-            Toast.makeText(mactivity, "请添加头像", Toast.LENGTH_SHORT).show();
-        } else if (infobean.getUserid() == null && infobean.getUserid().length() <= 0) {
-            Intent intent = new Intent(mactivity, Login.class);
-            startActivity(intent);
-            finish();
-        } else if (info.getRealname() == null && info.getRealname().length() <= 0) {
+        if ("选填".equals(tv_email.getText().toString())||tv_email.getText().toString() == null || tv_email.getText().toString().length() <= 0){
+            email = "";
+        }else{
+            email = tv_email.getText().toString();
+        }
+       if ("请输入真实姓名".equals(tv_realname.getText().toString())||tv_realname.getText().toString()==null||tv_realname.getText().toString().length() <= 0) {
             Toast.makeText(mactivity, "请填写真实姓名", Toast.LENGTH_SHORT).show();
-        } else if (info.getMyjob() == null && info.getMyjob().length() <= 0) {
+        } else if (tv_position.getText().toString() == null ||tv_position.getText().toString().length() <= 0) {
             Toast.makeText(mactivity, "请填写您的职位", Toast.LENGTH_SHORT).show();
-        } else if (info.getCompany() == null && info.getCompany().length() <= 0) {
+        } else if ("请输入公司名称".equals(tv_company.getText().toString())||tv_company.getText().toString()==null||tv_company.getText().toString().length() <= 0) {
             Toast.makeText(mactivity, "请填写您的当前公司", Toast.LENGTH_SHORT).show();
-        } else {
+        }else if (info.getPhoto() == null || info.getPhoto().length() <= 0) {
+            Toast.makeText(mactivity, "请添加头像", Toast.LENGTH_SHORT).show();
+        }else  if (infobean.getUserid() == null || infobean.getUserid().length() <= 0) {
+           Intent intent = new Intent(mactivity, Login.class);
+           startActivity(intent);
+           finish();
+       }else {
             if (NetBaseUtils.isConnnected(mactivity)) {
                 dialog.setMessage("正在提交..");
                 dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 dialog.show();
-                new UserRequest(mactivity, handler).UPDATECOMMANY(infobean.getUserid(), path, info.getRealname(), info.getMyjob(), info.getEmail(), info.getCompany(), info.getQq(), info.getWeixin(), info.getWeibo(), SAVEKEY);
+                new UserRequest(mactivity, handler).UPDATECOMMANY(infobean.getUserid(), info.getPhoto(), tv_realname.getText().toString(), tv_position.getText().toString(), email, tv_company.getText().toString(), info.getQq(), info.getWeixin(), info.getWeibo(), SAVEKEY);
             } else {
                 Toast.makeText(mactivity, R.string.net_error, Toast.LENGTH_SHORT).show();
             }
@@ -495,8 +497,6 @@ public class Register_personal_info extends Activity implements View.OnClickList
                 } else {
                     Toast.makeText(mactivity, R.string.net_error, Toast.LENGTH_SHORT).show();
                 }
-            }else{
-                Toast.makeText(mactivity,"请重新裁剪照片", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -525,28 +525,28 @@ public class Register_personal_info extends Activity implements View.OnClickList
     protected void onResume() {
         super.onResume();
 
-        if (Public_static_all.iscompanyA&&Public_static_all.iscompanya){
+        if (Public_static_all.iscompanyA&& Public_static_all.iscompanya){
             imageLoader.displayImage(NetBaseConstant.NET_HOST + "/" + info.getPhoto(), roundimage, options);
         }
-        if (Public_static_all.iscompanyB&&Public_static_all.iscompanyb){
+        if (Public_static_all.iscompanyB&& Public_static_all.iscompanyb){
             tv_realname.setText(info.getRealname());
         }
-        if (Public_static_all.iscompanyC&&Public_static_all.iscompanyc){
+        if (Public_static_all.iscompanyC&& Public_static_all.iscompanyc){
             tv_position.setText(info.getMyjob());
         }
-        if (Public_static_all.iscompanyD&&Public_static_all.iscompanyd){
+        if (Public_static_all.iscompanyD&& Public_static_all.iscompanyd){
             tv_email.setText(info.getEmail());
         }
-        if (Public_static_all.iscompanyE&&Public_static_all.iscompanye){
+        if (Public_static_all.iscompanyE&& Public_static_all.iscompanye){
             tv_company.setText(info.getCompany());
         }
-        if (Public_static_all.iscompanyF&&Public_static_all.iscompanyf){
+        if (Public_static_all.iscompanyF&& Public_static_all.iscompanyf){
             tv_qq.setText(info.getQq());
         }
-        if (Public_static_all.iscompanyG&&Public_static_all.iscompanyg){
+        if (Public_static_all.iscompanyG&& Public_static_all.iscompanyg){
             tv_weixin.setText(info.getWeixin());
         }
-        if (Public_static_all.iscompanyH&&Public_static_all.iscompanyh){
+        if (Public_static_all.iscompanyH&& Public_static_all.iscompanyh){
             tv_weibo.setText(info.getWeibo());
         }
     }

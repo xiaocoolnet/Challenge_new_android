@@ -32,6 +32,7 @@ import org.json.JSONObject;
 
 public class Register_Mine_advantage extends Activity implements View.OnClickListener{
     private static final int PUBLISHEDUCATION = 1;
+    private static final int GETMYRESUME = 2;
     private Context mContext;
     private UserInfoBean infobean;
     private WaveView back,submit;
@@ -87,6 +88,25 @@ public class Register_Mine_advantage extends Activity implements View.OnClickLis
                             }
                         }).start();
                         dialog.dismiss();
+                        Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case GETMYRESUME:
+                    if (msg.obj != null){
+                        String result = (String) msg.obj;
+                        try {
+                            JSONObject json = new JSONObject(result);
+                            if ("success".equals(json.optString("status"))){
+                                JSONObject josnobj = json.getJSONObject("data");
+                                String advantage = josnobj.getString("advantage");
+                                if (advantage != null&&advantage.length() > 0){
+                                    advantage_content.setText(advantage);
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
                         Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
                     }
                     break;
@@ -148,26 +168,40 @@ public class Register_Mine_advantage extends Activity implements View.OnClickLis
                finish();
                break;
            case R.id.submit_mine_advantage:
-//               if (advantage_content.getText().toString() != null&&advantage_content.getText().toString().length() > 0) {
-//                   if (NetBaseUtils.isConnnected(mContext)) {
-//                       dialog.setMessage("正在提交..");
-//                       dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//                       dialog.show();
-////                    userid,school学校,major专业,degree学历,time时间段,experience在校经历
-//                       new UserRequest(mContext, handler).PUBLISHADVANTAGE(infobean.getUserid(), advantage_content.getText().toString(), PUBLISHEDUCATION);
-//                   } else {
-//                       Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
-//                   }
-//               }else{
-//                   Toast.makeText(mContext, "请输入优势描述", Toast.LENGTH_SHORT).show();
-//               }
-               intent = new Intent(mContext,Register_Mine_intention.class);
-               startActivity(intent);
+               if (advantage_content.getText().toString() != null&&advantage_content.getText().toString().length() > 0) {
+                   if (NetBaseUtils.isConnnected(mContext)) {
+                       dialog.setMessage("正在提交..");
+                       dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                       dialog.show();
+//                    userid,school学校,major专业,degree学历,time时间段,experience在校经历
+                       new UserRequest(mContext, handler).PUBLISHADVANTAGE(infobean.getUserid(), advantage_content.getText().toString(), PUBLISHEDUCATION);
+                   } else {
+                       Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
+                   }
+               }else{
+                   Toast.makeText(mContext, "请输入优势描述", Toast.LENGTH_SHORT).show();
+               }
+//               intent = new Intent(mContext,Register_Mine_intention.class);
+//               startActivity(intent);
                break;
            case R.id.look_other_personal:
                //看看别人怎么写
                Toast.makeText(mContext, "暂未开通此功能", Toast.LENGTH_SHORT).show();
                break;
        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getinfo();
+    }
+
+    private void getinfo() {
+        if (NetBaseUtils.isConnnected(mContext)) {
+            new UserRequest(mContext, handler).GETMYADVANTAGE(infobean.getUserid(), GETMYRESUME);
+        } else {
+            Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
+        }
     }
 }

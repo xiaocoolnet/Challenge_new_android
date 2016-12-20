@@ -409,8 +409,8 @@ public class FindPersonal_fragment_bean {
             private String company_industry;
             private String jobtype;
             private String skill;
-            private String work_period;
             private String create_time;
+            private String work_period;
             private String content;
 
             public String getUserid() {

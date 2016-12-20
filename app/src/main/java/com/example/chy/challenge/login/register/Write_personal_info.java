@@ -174,6 +174,17 @@ public class Write_personal_info extends Activity implements View.OnClickListene
                         write_et_upcontent.setText(s);
                         write_et_upcontent.setSelection(tempSelection);//设置光标在最后
                     }
+                }else if ("projectname".equals(type)){
+                    int number = num - s.length();
+                    write_tv_textnum_down.setText("" + number);
+                    selectionStart = write_et_upcontent.getSelectionStart();
+                    selectionEnd = write_et_upcontent.getSelectionEnd();
+                    if (temp.length() > num) {
+                        s.delete(selectionStart - 1, selectionEnd);
+                        int tempSelection = selectionStart;
+                        write_et_upcontent.setText(s);
+                        write_et_upcontent.setSelection(tempSelection);//设置光标在最后
+                    }
                 }
             }
         });
@@ -228,6 +239,9 @@ public class Write_personal_info extends Activity implements View.OnClickListene
                 }else if ("schoolmajor".equals(type)){//专业名称
                     Public_static_all.iseducationb = true;
                     info.setSchoolmajor(write_et_upcontent.getText().toString()+"");
+                }else if ("projectname".equals(type)){//项目名称
+                    Public_static_all.idprojectnamea = true;
+                    info.setProjectname(write_et_upcontent.getText().toString()+"");
                 }
                 finish();
                 break;
@@ -285,6 +299,11 @@ public class Write_personal_info extends Activity implements View.OnClickListene
             write_tv_textnum_down.setText("20");
         }else if ("schoolmajor".equals(type)){
             write_tv_title.setText("专业名称");
+            textView3.setText("/20");
+            num = 20;
+            write_tv_textnum_down.setText("20");
+        }else if ("projectname".equals(type)){
+            write_tv_title.setText("项目名称");
             textView3.setText("/20");
             num = 20;
             write_tv_textnum_down.setText("20");

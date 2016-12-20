@@ -49,6 +49,11 @@ public class Public_static_all {
     public static Boolean isJobD = false;
     public static Boolean isJobd = false;
 
+    public static Boolean idprojectnameA = false;
+    public static Boolean idprojectnamea = false;
+    public static Boolean idprojectnameB = false;
+    public static Boolean idprojectnameb = false;
+
     public static Boolean isintenttionA = false;
     public static Boolean isintenttiona = false;
     public static Boolean isintenttionB = false;

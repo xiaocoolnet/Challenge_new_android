@@ -24,7 +24,8 @@
             android:textColor="@color/white"
             android:textSize="@dimen/activity_text_20"
             android:text="简历"/>
-        <Button
+        <com.example.chy.challenge.button.RevealButton
+            android:id="@+id/btn_look_allresume"
             android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,14 +57,15 @@
             android:layout_below="@+id/imageView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:id="@+id/name" />
+            android:id="@+id/personal_realname" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name"
+            android:layout_below="@+id/personal_realname"
             android:layout_alignParentBottom="true"
             android:gravity="center_horizontal|bottom">
             <TextView
+                android:id="@+id/personal_sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/activity_text_14"
@@ -78,6 +80,7 @@
                 android:textColor="@color/gray4"
                 android:background="@color/gray"/>
             <TextView
+                android:id="@+id/personal_jobtime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/activity_text_14"
@@ -92,14 +95,24 @@
                 android:layout_height="wrap_content"
                 android:background="@color/gray"/>
             <TextView
+                android:id="@+id/personal_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/activity_text_14"
                 android:textColor="@color/gray4"
                 android:text="北京"/>
-            <ImageView
+            <com.example.chy.challenge.button.WaveView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:id="@+id/updata_personal_info"
+                android:paddingRight="@dimen/activity_layout_10"
+                >
+            <ImageView
+                android:layout_width="@dimen/activity_layout_10"
+                android:background="@mipmap/lv_xiugai"
+                android:layout_marginLeft="@dimen/activity_layout_20"
+                android:layout_height="@dimen/activity_layout_20" />
+            </com.example.chy.challenge.button.WaveView>
         </LinearLayout>
     </RelativeLayout>
         <TextView
@@ -112,6 +125,7 @@
         style="@style/group_item"
         >
         <com.example.chy.challenge.button.WaveView
+            android:id="@+id/objective"
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_layout_45"
             >
@@ -132,9 +146,10 @@
                 android:layout_centerVertical="true"
                 >
                 <TextView
+                    android:id="@+id/tv_objective"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="待完善"
+                    android:text="完整"
                     android:textColor="@color/gray4"
                     android:textSize="@dimen/activity_text_14"
                     />
@@ -151,69 +166,166 @@
             style="@style/segmentation"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"/>
-        <LinearLayout
+        <com.example.chy.challenge.button.WaveView
             android:id="@+id/education"
-            style="@style/index_item">
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_layout_45"
+            >
             <TextView
-                style="@style/tvStyle_mine"
-                android:text="教育背景"/>
-            <TextView
-                style="@style/personal_data_complete"/>
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
-        </LinearLayout>
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="教育背景"
+                android:textColor="@color/black"
+                android:textSize="@dimen/activity_text_16"
+                android:layout_marginLeft="@dimen/activity_layout_10"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/activity_layout_10"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:id="@+id/tv_education"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="完整"
+                    android:textColor="@color/gray4"
+                    android:textSize="@dimen/activity_text_14"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/jaintou_gray"
+                    android:layout_marginLeft="@dimen/activity_layout_5"
+                    />
+            </LinearLayout>
+        </com.example.chy.challenge.button.WaveView>
         <TextView
             style="@style/segmentation"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"/>
-        <LinearLayout
+        <com.example.chy.challenge.button.WaveView
             android:id="@+id/work_experience"
-            style="@style/index_item">
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_layout_45"
+            >
             <TextView
-                style="@style/tvStyle_mine"
-                android:text="工作/实习经历"/>
-            <TextView
-                style="@style/personal_data_complete"/>
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
-        </LinearLayout>
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="工作/实习经历"
+                android:textColor="@color/black"
+                android:textSize="@dimen/activity_text_16"
+                android:layout_marginLeft="@dimen/activity_layout_10"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/activity_layout_10"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:id="@+id/tv_work_experience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="完整"
+                    android:textColor="@color/gray4"
+                    android:textSize="@dimen/activity_text_14"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/jaintou_gray"
+                    android:layout_marginLeft="@dimen/activity_layout_5"
+                    />
+            </LinearLayout>
+        </com.example.chy.challenge.button.WaveView>
         <TextView
             style="@style/segmentation"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"/>
-        <LinearLayout
+        <com.example.chy.challenge.button.WaveView
             android:id="@+id/project_experience"
-            style="@style/index_item">
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_layout_45"
+            >
             <TextView
-                style="@style/tvStyle_mine"
-                android:text="项目经验"/>
-            <TextView
-                style="@style/personal_data_incomplete"/>
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
-        </LinearLayout>
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="项目经验"
+                android:textColor="@color/black"
+                android:textSize="@dimen/activity_text_16"
+                android:layout_marginLeft="@dimen/activity_layout_10"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/activity_layout_10"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:id="@+id/tv_project_experience"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="完整"
+                    android:textColor="@color/gray4"
+                    android:textSize="@dimen/activity_text_14"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/jaintou_gray"
+                    android:layout_marginLeft="@dimen/activity_layout_5"
+                    />
+            </LinearLayout>
+        </com.example.chy.challenge.button.WaveView>
         <TextView
             style="@style/segmentation"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"/>
-        <LinearLayout
+        <com.example.chy.challenge.button.WaveView
             android:id="@+id/advantage"
-            style="@style/index_item">
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_layout_45"
+            >
             <TextView
-                style="@style/tvStyle_mine"
-                android:text="我的优势"/>
-            <TextView
-                style="@style/personal_data_complete"/>
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
-        </LinearLayout>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="我的优势"
+                android:textColor="@color/black"
+                android:textSize="@dimen/activity_text_16"
+                android:layout_marginLeft="@dimen/activity_layout_10"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/activity_layout_10"
+                android:layout_centerVertical="true"
+                >
+                <TextView
+                    android:id="@+id/tv_advantage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="完整"
+                    android:textColor="@color/gray4"
+                    android:textSize="@dimen/activity_text_14"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/jaintou_gray"
+                    android:layout_marginLeft="@dimen/activity_layout_5"
+                    />
+            </LinearLayout>
+        </com.example.chy.challenge.button.WaveView>
     </LinearLayout>
         </LinearLayout>
     </ScrollView>

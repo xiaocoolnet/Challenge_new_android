@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:id="@+id/ril_back"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="@dimen/activity_layout_45"
+        >
+        <include layout="@layout/title_back"/>
+        <TextView
+            android:id="@+id/title_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="我的黑名单"
+            android:textColor="@color/white"
+            android:textSize="@dimen/activity_text_18"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+    <com.example.chy.challenge.pnlllist.PullToRefreshListView
+        android:id="@+id/pulllistview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray5"
+        android:drawSelectorOnTop="false"
+        android:scrollbars="none"
+        android:footerDividersEnabled = "false"
+        />
+</LinearLayout>

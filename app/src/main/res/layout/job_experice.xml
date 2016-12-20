@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray6"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <include layout="@layout/title_back_compelete"/>
+        <TextView
+            android:id="@+id/title_top"
+            style="@style/title_text"
+            android:text="公司行业选择"/>
+
+    </RelativeLayout>
+    <GridView
+        android:id="@+id/jobshow_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3"
+        android:background="@color/gray6"
+        android:paddingTop="@dimen/activity_layout_10"
+        android:visibility="gone"
+        android:paddingLeft="@dimen/activity_layout_10"
+        android:paddingRight="@dimen/activity_layout_10"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="@dimen/activity_layout_5"
+        />
+    <com.example.chy.challenge.button.XCFlowLayout
+        android:id="@+id/flowlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </com.example.chy.challenge.button.XCFlowLayout>
+</LinearLayout>

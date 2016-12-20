@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:scaleX="0.7"
+        android:scaleY="1"
+        android:layout_marginBottom="@dimen/activity_layout_205"
+        android:layout_marginTop="@dimen/activity_layout_30"
+        android:background="@mipmap/sorry" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_layout_175"
+        android:background="@mipmap/ic_zi" />
+
+    <com.example.chy.challenge.button.RevealButton
+        android:id="@+id/btnAddPosition"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_45"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/activity_layout_90"
+        android:layout_marginLeft="@dimen/activity_layout_50"
+        android:layout_marginRight="@dimen/activity_layout_50"
+        android:background="@drawable/button_border"
+        android:text="发布职位"
+        android:textColor="@color/white"
+        android:textSize="@dimen/activity_text_18" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/activity_layout_60"
+        android:layout_marginTop="@dimen/activity_layout_20"
+        android:gravity="center"
+        android:text=" 发布职位后  会为您推荐最合适的人才"
+        android:textSize="@dimen/activity_text_16" />
+
+</RelativeLayout>

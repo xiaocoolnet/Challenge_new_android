@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <include layout="@layout/title_back_compelete"/>
+        <TextView
+            android:id="@+id/title_top"
+            style="@style/title_text"
+            android:text="技能标签"/>
+        <com.example.chy.challenge.button.WaveView
+            android:id="@+id/submit_job_experice"
+            android:layout_width="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="@dimen/activity_layout_45">
+            <ImageView
+                android:src="@mipmap/ic_duigou"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </com.example.chy.challenge.button.WaveView>
+    </RelativeLayout>
+    <GridView
+        android:id="@+id/jobshow_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="4"
+        android:background="@color/gray6"
+        android:columnWidth="@dimen/activity_layout_35"
+        android:stretchMode="columnWidth"
+        android:paddingTop="@dimen/activity_layout_10"
+        android:paddingLeft="@dimen/activity_layout_10"
+        android:paddingRight="@dimen/activity_layout_10"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+
+        />
+</LinearLayout>

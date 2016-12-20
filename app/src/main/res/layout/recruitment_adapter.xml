@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray5"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_25"
+        android:layout_marginTop="@dimen/activity_layout_10"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/commany_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/activity_layout_10"
+            android:text="PHP研发工程师"
+            android:textColor="@color/black"
+            android:textSize="@dimen/activity_text_16" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/activity_layout_10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="￥"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/activity_text_14" />
+
+            <TextView
+                android:id="@+id/commany_salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/activity_layout_2"
+                android:text="5-6"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/activity_text_14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/activity_layout_2"
+                android:text="K"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/activity_text_14" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_30"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/activity_layout_10"
+            android:layout_marginRight="@dimen/activity_layout_10"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/activity_layout_5"
+                    android:background="@mipmap/ic_dingwei" />
+
+                <TextView
+                    android:id="@+id/adapter_location_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="北京"
+                    android:textColor="@color/gray4"
+                    android:textSize="@dimen/activity_text_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_layout_10"
+                    android:layout_marginRight="@dimen/activity_layout_5"
+                    android:background="@mipmap/ic_gongzuonianxian" />
+
+                <TextView
+                    android:id="@+id/adapter_jobtime_worklife"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="1-3年"
+                    android:textColor="@color/gray4"
+                    android:textSize="@dimen/activity_text_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_layout_25"
+                    android:background="@mipmap/ic_xueli" />
+
+                <TextView
+                    android:id="@+id/adapter_personal_degree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_layout_5"
+                    android:gravity="center_vertical"
+                    android:text="本科"
+                    android:textColor="@color/gray4"
+                    android:textSize="@dimen/activity_text_14" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center_vertical|right">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/ic_quanzhi" />
+
+                <TextView
+                    android:id="@+id/adapter_work_property"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_layout_5"
+                    android:gravity="center_vertical"
+                    android:text="全职"
+                    android:textColor="@color/gray4"
+                    android:textSize="@dimen/activity_text_14" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

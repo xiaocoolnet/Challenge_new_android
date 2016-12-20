@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgc">
+    <RelativeLayout
+        android:background="@color/green"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:text="挑战高薪"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <com.example.chy.challenge.button.RevealButton
+            android:id="@+id/forperson"
+            android:layout_marginTop="15dp"
+            android:text="抢人才"
+            android:textColor="@color/white"
+            android:background="@drawable/button_border"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_layout_40" />
+        <com.example.chy.challenge.button.RevealButton
+            android:id="@+id/formoney"
+            android:layout_marginTop="15dp"
+            android:text="挑战高薪"
+            android:textColor="@color/white"
+            android:background="@drawable/button_border"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_layout_40" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'config'
+            keyPassword '320306'
+            storeFile file('F:/Challenge_android/app/debug.jks')
+            storePassword '320306'
+        }
+    }
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+    defaultConfig {
+        applicationId "com.example.chy.challenge"
+        minSdkVersion 14
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable false
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile files('libs/org.apache.http.legacy.jar')
+    compile files('libs/httpmime-4.1.2.jar')
+    compile files('libs/locSDK_6.23.jar')
+    compile files('libs/universal-image-loader-1.9.3.jar')
+    compile 'com.android.support:support-v4:24.1.1'
+}

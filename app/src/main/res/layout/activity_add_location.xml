@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/gray5"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/green"
+        android:layout_height="@dimen/activity_layout_45">
+        <include layout="@layout/title_back"/>
+        <TextView
+            android:id="@+id/textView"
+            style="@style/title_text"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="更多城市" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ril_et_out"
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_white_white_25"
+        android:layout_margin="@dimen/activity_layout_15"
+        >
+        <ImageView
+            android:id="@+id/search_left_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/search"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_layout_15"
+            />
+        <com.example.chy.challenge.login.register.commany_info.location.ClearEditText
+            android:id="@+id/filter_edit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_layout_35"
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            android:layout_toRightOf="@id/search_left_image"
+            android:textColor="@color/gray8"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="@dimen/activity_layout_5"
+            >
+            <requestFocus/>
+            </com.example.chy.challenge.login.register.commany_info.location.ClearEditText>
+
+        <LinearLayout
+            android:id="@+id/tv_center_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/search"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_layout_5"
+                android:textColor="@color/gray8"
+                android:text="输入城市或拼音查询"
+                android:textSize="@dimen/activity_text_14"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:background="@color/white"
+        android:layout_height="fill_parent" >
+
+        <com.example.chy.challenge.Utils.NoScrollListView
+            android:id="@+id/country_lvcountry"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:divider="@null" />
+
+        <TextView
+            android:id="@+id/title_layout_no_friends"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="right|top"
+            android:background="#E0E0E0"
+            android:gravity="center_vertical"
+            android:text="没有匹配的城市信息"
+            android:textColor="#454545"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="right|top"
+            android:background="#ff303030"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title_layout_catalog"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#E0E0E0"
+                android:paddingBottom="5dip"
+                android:paddingLeft="5dip"
+                android:paddingTop="5dip"
+                android:textColor="#454545" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dialog"
+            android:layout_width="80.0dip"
+            android:layout_height="80.0dip"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="30.0dip"
+            android:visibility="invisible" />
+
+        <com.example.chy.challenge.login.register.commany_info.location.SideBar
+            android:id="@+id/sidrbar"
+            android:layout_width="30.0dip"
+            android:visibility="gone"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right|center" />
+    </FrameLayout>
+    </ScrollView>
+</LinearLayout>

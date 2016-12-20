@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/bgc" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="@dimen/activity_layout_10"
+        android:paddingRight="@dimen/activity_layout_10">
+
+        <TextView
+            android:id="@+id/company_work_position"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="网页设计师"
+            android:textColor="@color/green"
+            android:textSize="@dimen/activity_text_16" />
+        <!--<LinearLayout-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--&gt;-->
+        <!--<TextView
+            android:id="@+id/company_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="北京创世科技网络有限公司"
+            android:textColor="@color/black"
+            android:textSize="@dimen/activity_text_14" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/activity_layout_14"
+                android:background="@mipmap/ic_youjiantou"
+                android:layout_marginLeft="@dimen/activity_layout_10"
+                />-->
+        <!--</LinearLayout>-->
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_0.5"
+        android:layout_marginLeft="@dimen/activity_layout_10"
+        android:layout_marginRight="@dimen/activity_layout_10"
+        android:background="@color/gray2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_80"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <!--头像-->
+        <com.example.chy.challenge.button.RoundImageView
+            android:id="@+id/adapter_head_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/activity_layout_10" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/activity_layout_10"
+                android:layout_marginBottom="@dimen/activity_layout_10"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1.0"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_height="@dimen/activity_layout_0">
+
+                    <TextView
+                        android:id="@+id/company_tv_manager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="李毅和"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/activity_text_14" />
+                    <View
+                        android:layout_width="@dimen/activity_layout_1"
+                        android:layout_height="@dimen/activity_layout_15"
+                        android:layout_marginLeft="@dimen/activity_layout_3"
+                        android:layout_marginRight="@dimen/activity_layout_3"
+                        android:background="@color/black" />
+
+                    <TextView
+                        android:id="@+id/company_manager_position"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="经理"
+                        android:textSize="@dimen/activity_text_14" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="￥"
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/activity_text_16" />
+
+                        <TextView
+                            android:id="@+id/company_tv_salary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5-6"
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/activity_text_16" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="K"
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/activity_text_16" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_layout_0"
+                    android:layout_weight="2.0"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:id="@+id/company_tv_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="公司规模0-22人"
+                        android:layout_marginTop="@dimen/activity_layout_10"
+                        android:textSize="@dimen/activity_text_14"
+                        android:textColor="@color/gray4"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_0.5"
+        android:layout_marginLeft="@dimen/activity_layout_10"
+        android:layout_marginRight="@dimen/activity_layout_10"
+        android:background="@color/gray2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_40"
+        android:paddingLeft="@dimen/activity_layout_15"
+        android:paddingRight="@dimen/activity_layout_15">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_dingwei"
+                android:layout_marginRight="@dimen/activity_layout_5"
+                />
+
+            <TextView
+                android:id="@+id/adapter_location_city"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/activity_text_14"
+                android:textColor="@color/gray4"
+                android:text="北京" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_gongzuonianxian"
+                android:layout_marginRight="@dimen/activity_layout_5"
+                />
+
+            <TextView
+                android:id="@+id/adapter_jobtime_worklife"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/activity_text_14"
+                android:textColor="@color/gray4"
+                android:layout_height="match_parent"
+                android:text="1-3年" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_xueli"
+                />
+
+            <TextView
+                android:id="@+id/adapter_personal_degree"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_layout_5"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/activity_text_14"
+                android:textColor="@color/gray4"
+                android:text="本科" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:gravity="center_vertical|right">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_quanzhi"
+                />
+
+            <TextView
+                android:id="@+id/adapter_work_property"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_layout_5"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/activity_text_14"
+                android:textColor="@color/gray4"
+                android:text="全职" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

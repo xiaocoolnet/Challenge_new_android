@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/activity_layout_35"
+    >
+    <TextView
+        android:id="@+id/tv_child_jobtype"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_35"
+        android:text="计算机/互联网/通信"
+        android:textSize="@dimen/activity_text_16"
+        android:paddingLeft="@dimen/activity_layout_10"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:background="@color/gray6"
+        />
+</LinearLayout>

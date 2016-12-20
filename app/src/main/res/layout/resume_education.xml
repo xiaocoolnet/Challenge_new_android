@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray2"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <include layout="@layout/title_back" />
+        <TextView
+            android:id="@+id/textView"
+            style="@style/title_text"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="教育经历" />
+        <com.example.chy.challenge.button.WaveView
+            android:id="@+id/resume_education_next"
+            android:layout_width="45dp"
+            android:layout_height="@dimen/activity_layout_45"
+            android:layout_alignParentRight="true"
+            >
+            <ImageView
+                android:src="@mipmap/ic_duigou"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </com.example.chy.challenge.button.WaveView>
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollview"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_layout_35"
+                android:background="@color/gray2"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_layout_10"
+                android:text="教育经历"
+                android:textColor="@color/gray4"
+                android:textSize="@dimen/activity_text_14" />
+
+            <com.example.chy.challenge.button.WaveView
+                android:id="@+id/resume_graduate_institutions"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="@dimen/activity_layout_50">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/activity_layout_8"
+                    android:textColor="@color/black"
+                    android:text="毕业院校"
+                    android:textSize="@dimen/activity_text_16" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/activity_layout_10"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/resume_et_school"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="请输入毕业院校"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/gray4"
+                        android:textSize="@dimen/activity_text_14"
+                         />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_layout_10"
+                        android:layout_gravity="center_vertical"
+                        android:background="@mipmap/ic_jiantoulv" />
+                </LinearLayout>
+            </com.example.chy.challenge.button.WaveView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_layout_1"
+                android:background="@color/gray2" />
+
+            <com.example.chy.challenge.button.WaveView
+                android:id="@+id/resume_graduate_major"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:layout_height="@dimen/activity_layout_50">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/activity_layout_8"
+                    android:text="所学专业"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/activity_text_16" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/activity_layout_10"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/resume_et_major"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="请输入所学专业"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/gray4"
+                        android:textSize="@dimen/activity_text_14"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_layout_10"
+                        android:layout_gravity="center_vertical"
+                        android:background="@mipmap/ic_jiantoulv" />
+                </LinearLayout>
+            </com.example.chy.challenge.button.WaveView>
+
+            <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_1"
+        android:background="@color/gray2" />
+
+    <com.example.chy.challenge.button.WaveView
+        android:id="@+id/resume_Atthe_time"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_50">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_layout_8"
+            android:text="就读时间段"
+            android:textColor="@color/black"
+            android:textSize="@dimen/activity_text_16" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity_layout_10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/resume_tv_readtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请选择时间"
+                android:textColor="@color/gray4"
+                android:textSize="@dimen/activity_text_14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/activity_layout_10"
+                android:background="@mipmap/ic_jiantoulv" />
+        </LinearLayout>
+    </com.example.chy.challenge.button.WaveView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_layout_1"
+                android:background="@color/gray2" />
+
+            <com.example.chy.challenge.button.WaveView
+                android:id="@+id/resume_education"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_layout_50">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/activity_layout_8"
+                    android:text="学历"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/activity_text_16" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/activity_layout_10"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/resume_tv_education"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="请选择学历"
+                        android:textColor="@color/gray4"
+                        android:textSize="@dimen/activity_text_14" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_layout_10"
+                        android:layout_gravity="center_vertical"
+                        android:background="@mipmap/ic_jiantoulv" />
+                </LinearLayout>
+            </com.example.chy.challenge.button.WaveView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_layout_35"
+                android:text="在校经历"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_layout_10"
+                android:textSize="@dimen/activity_text_14"
+                android:textColor="@color/gray4"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_layout_120"
+                android:background="@color/white"
+                >
+                <EditText
+                    android:id="@+id/resume_et_experience"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="left"
+                    android:padding="@dimen/activity_layout_5"
+                    android:layout_marginBottom="@dimen/activity_layout_35"
+                    >
+                <requestFocus />
+                </EditText>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_layout_35"
+                    android:orientation="horizontal"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_vertical|right"
+                    android:layout_marginRight="@dimen/activity_layout_10"
+                    >
+                    <TextView
+                        android:id="@+id/resume_tv_experience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="300"
+                        android:textSize="@dimen/activity_text_14"
+                        android:textColor="@color/green"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/300"
+                        android:textSize="@dimen/activity_text_14"
+                        android:textColor="@color/green"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_layout_0.5"
+                    android:background="@color/gray2"
+                    android:layout_marginLeft="@dimen/activity_layout_10"
+                    android:layout_marginRight="@dimen/activity_layout_10"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/activity_layout_35"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+        </ScrollView>
+        </LinearLayout>
+    <TextView
+        android:id="@+id/textview_pop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_0.5"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/activity_layout_50"
+        />
+</RelativeLayout>

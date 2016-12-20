@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_beijingtu"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_45"
+        android:background="@color/lucency">
+
+        <com.example.chy.challenge.button.WaveView
+            android:id="@+id/register_btn_back"
+            android:layout_width="@dimen/activity_layout_45"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/activity_layout_25"
+                android:layout_height="@dimen/activity_layout_25"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/ic_jiantou" />
+        </com.example.chy.challenge.button.WaveView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/register_title_top"
+            android:textColor="@color/white"
+            android:textSize="@dimen/activity_text_16" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_layout_40"
+        android:background="@color/lucency">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_layout_45"
+                android:layout_marginLeft="@dimen/activity_layout_25"
+                android:layout_marginRight="@dimen/activity_layout_25"
+                android:background="@drawable/border_white"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="@dimen/activity_layout_70"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/register_tv_phonenum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login_tv_phone"
+                        android:layout_marginLeft="@dimen/activity_layout_10"
+                        android:textColor="@color/white" />
+
+                    <ImageView
+                        android:layout_toRightOf="@id/register_tv_phonenum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_layout_4"
+                        android:layout_marginLeft="@dimen/activity_layout_5"
+                        android:background="@mipmap/ic_haomaxiala" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/register_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/login_et_phone"
+                        android:lines="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/activity_text_14"
+                        android:maxLength="11"
+                        android:paddingLeft="@dimen/activity_layout_15"
+                        android:phoneNumber="true"
+                        android:textColorHint="@color/gray" />
+
+                    <com.example.chy.challenge.button.RevealButton
+                        android:id="@+id/regist_getCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="@dimen/activity_layout_10"
+                        android:layout_alignBaseline="@+id/phone_repwd"
+                        android:layout_alignBottom="@+id/phone_repwd"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="right"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:text="@string/register_btn_code"
+                        android:textColor="@color/green" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_layout_45"
+                android:layout_marginLeft="@dimen/activity_layout_25"
+                android:layout_marginRight="@dimen/activity_layout_25"
+                android:layout_marginTop="@dimen/activity_layout_15"
+                android:background="@drawable/border_white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/activity_layout_70"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:paddingLeft="@dimen/activity_layout_10"
+                    android:text="@string/register_tv_code" />
+
+                <EditText
+                    android:id="@+id/register_code"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/register_et_code"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/activity_text_14"
+                    android:paddingLeft="@dimen/activity_layout_15"
+                    android:lines="1"
+                    android:textColorHint="@color/gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_layout_45"
+                android:layout_marginLeft="@dimen/activity_layout_25"
+                android:layout_marginRight="@dimen/activity_layout_25"
+                android:layout_marginTop="@dimen/activity_layout_15"
+                android:background="@drawable/border_white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/activity_layout_70"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/activity_layout_10"
+                    android:text="@string/register_tv_pass" />
+                    <EditText
+                        android:id="@+id/register_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/register_et_password"
+                        android:lines="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/activity_text_14"
+                        android:password="true"
+                        android:paddingLeft="@dimen/activity_layout_15"
+                        android:textColorHint="@color/gray" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.example.chy.challenge.button.RevealButton
+        android:id="@+id/regist_save"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_45"
+        android:layout_marginLeft="@dimen/activity_layout_25"
+        android:layout_marginRight="@dimen/activity_layout_25"
+        android:layout_marginTop="@dimen/activity_layout_60"
+        android:background="@drawable/button_border"
+        android:text="完成"
+        android:textColor="@color/white"
+        android:textSize="@dimen/activity_text_16" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.chy.challenge.button.WaveView
+            android:id="@+id/refister_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/activity_layout_20"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/activity_layout_10"
+            android:background="@null"
+            android:gravity="right"
+            android:layout_marginRight="@dimen/activity_layout_25"
+            >
+            <ImageView
+                android:id="@+id/register_personal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/ic_xuanze_lv"
+                />
+            <TextView
+                android:layout_toRightOf="@id/register_personal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/register_btn_personal"
+                android:layout_marginLeft="@dimen/activity_layout_5"
+                android:textColor="@color/white"
+                android:textSize="@dimen/activity_text_14"
+                />
+        </com.example.chy.challenge.button.WaveView>
+    </RelativeLayout>
+</LinearLayout>

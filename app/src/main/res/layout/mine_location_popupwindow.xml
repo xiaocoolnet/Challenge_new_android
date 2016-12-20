@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#E9E9E9"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/pop_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_40"
+        android:text="就读时间段"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:textSize="@dimen/activity_text_18"
+        android:gravity="center"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_0.5"
+        android:background="@color/gray2"
+        />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+
+        <com.example.chy.challenge.WheelView.WheelView
+            android:id="@+id/id_leftyear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+        </com.example.chy.challenge.WheelView.WheelView>
+        <com.example.chy.challenge.WheelView.WheelView
+            android:id="@+id/id_centeryear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+        </com.example.chy.challenge.WheelView.WheelView>
+        <!--<TextView-->
+            <!--android:layout_width="@dimen/activity_layout_0"-->
+            <!--android:layout_weight="0.5"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:text="至"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:gravity="center"-->
+            <!--android:background="@color/white"-->
+            <!--android:paddingLeft="@dimen/activity_layout_15"-->
+            <!--android:paddingRight="@dimen/activity_layout_15"-->
+            <!--/>-->
+
+        <com.example.chy.challenge.WheelView.WheelView
+            android:id="@+id/id_rightyear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+        </com.example.chy.challenge.WheelView.WheelView>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_0.5"
+        android:background="@color/gray2"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_50"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@+id/mine_pop_cancle"
+            android:layout_width="@dimen/activity_layout_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_marginLeft="20dip"
+            android:text="取消"
+            android:textColor="@color/black"
+            android:textSize="@dimen/activity_text_18" />
+        <View
+            android:layout_width="@dimen/activity_layout_0.5"
+            android:layout_height="match_parent"
+            android:background="@color/gray2"
+            />
+        <TextView
+            android:id="@+id/mine_pop_sure"
+            android:layout_width="@dimen/activity_layout_0"
+            android:layout_weight="1.0"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dip"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:text="确定"
+            android:textColor="@color/black"
+            android:textSize="@dimen/activity_text_18" />
+    </LinearLayout>
+</LinearLayout>

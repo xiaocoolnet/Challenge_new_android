@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgc"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="145dp"
+                android:background="@color/green"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_layout_30"
+                    android:layout_marginTop="@dimen/activity_layout_15">
+
+                    <com.example.chy.challenge.button.WaveView
+                        android:id="@+id/mine_company_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_height="@dimen/activity_layout_30"
+                        android:layout_marginRight="@dimen/activity_layout_10">
+
+                        <ImageView
+                            android:layout_width="@dimen/activity_layout_30"
+                            android:layout_height="@dimen/activity_layout_30"
+                            android:background="@mipmap/ic_set" />
+                    </com.example.chy.challenge.button.WaveView>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_layout_50"
+                    android:layout_marginTop="@dimen/activity_layout_20">
+
+                    <RelativeLayout
+                        android:id="@+id/mine_company_update"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true">
+                        <!--头像-->
+                        <com.example.chy.challenge.button.RoundImageView
+                            android:id="@+id/mine_company_photo"
+                            android:layout_width="@dimen/activity_layout_50"
+                            android:layout_height="@dimen/activity_layout_50"
+                            android:layout_marginLeft="10dp"
+                            android:background="@mipmap/ic_wode" />
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/activity_layout_10"
+                            android:layout_toRightOf="@+id/mine_company_photo"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/activity_layout_0"
+                                android:layout_weight="1.0"
+                                android:orientation="horizontal">
+                                <!--用户名-->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="王小妞"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/activity_text_16" />
+
+
+                            </LinearLayout>
+                            <!--信息-->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/activity_layout_0"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:text="在职-考虑机会"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/activity_text_14" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/activity_layout_30"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/activity_layout_10"
+                        android:background="@drawable/border_tv_00green"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="@dimen/activity_layout_29"
+                            android:layout_height="@dimen/activity_layout_29"
+                            android:layout_marginLeft="@dimen/activity_layout_1"
+                            android:background="@drawable/border_tv_green"
+                            android:gravity="center"
+                            android:text="V1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/activity_text_14" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/activity_layout_5"
+                            android:text="积分数"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/activity_text_14" />
+
+                        <TextView
+                            android:layout_width="@dimen/activity_layout_0.5"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/activity_layout_7"
+                            android:layout_marginLeft="@dimen/activity_layout_5"
+                            android:layout_marginRight="@dimen/activity_layout_5"
+                            android:layout_marginTop="@dimen/activity_layout_7"
+                            android:background="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/activity_layout_10"
+                            android:text="120"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/activity_text_14" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/group_item">
+
+                    <com.example.chy.challenge.button.WaveView
+                        android:id="@+id/mine_personal_collection"
+                        style="@style/index_item">
+
+                        <ImageView
+                            android:id="@+id/imagethree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/ic_shoucang" />
+
+                        <TextView
+                            style="@style/tvStyle_mine"
+                            android:layout_marginLeft="@dimen/activity_layout_10"
+                            android:layout_toRightOf="@id/imagethree"
+                            android:text="我的收藏"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/activity_text_16" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/activity_layout_10"
+                            android:background="@mipmap/ic_jiantoulv" />
+                    </com.example.chy.challenge.button.WaveView>
+
+                    <TextView
+                        style="@style/segmentation"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp" />
+
+                    <com.example.chy.challenge.button.WaveView
+                        android:id="@+id/ming_personal_reward"
+                        style="@style/index_item">
+
+                        <ImageView
+                            android:id="@+id/imagefour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/ic_wodejiangjin" />
+
+                        <TextView
+                            style="@style/tvStyle_mine"
+                            android:layout_marginLeft="@dimen/activity_layout_10"
+                            android:layout_toRightOf="@id/imagefour"
+                            android:text="我的奖金"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/activity_text_16" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/activity_layout_10"
+                            android:background="@mipmap/ic_jiantoulv" />
+                    </com.example.chy.challenge.button.WaveView>
+                </LinearLayout>
+
+                <LinearLayout style="@style/group_item">
+
+                    <com.example.chy.challenge.button.WaveView
+                        android:id="@+id/mine_personal_record"
+                        style="@style/index_item">
+
+                        <ImageView
+                            android:id="@+id/imagefive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/ic_wodetoudijilu" />
+
+                        <TextView
+                            style="@style/tvStyle_mine"
+                            android:layout_marginLeft="@dimen/activity_layout_10"
+                            android:layout_toRightOf="@id/imagefive"
+                            android:text="我的投递记录"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/activity_text_16" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/activity_layout_10"
+                            android:background="@mipmap/ic_jiantoulv" />
+                    </com.example.chy.challenge.button.WaveView>
+
+                    <TextView
+                        style="@style/segmentation"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp" />
+                    <com.example.chy.challenge.button.WaveView
+                        android:id="@+id/mine_black_friend"
+                        style="@style/index_item">
+
+                        <ImageView
+                            android:id="@+id/imageseven"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/ic_heimingdan" />
+
+                        <TextView
+                            style="@style/tvStyle_mine"
+                            android:layout_marginLeft="@dimen/activity_layout_10"
+                            android:layout_toRightOf="@id/imageseven"
+                            android:text="我的黑名单"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/activity_text_16" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/activity_layout_10"
+                            android:background="@mipmap/ic_jiantoulv" />
+                    </com.example.chy.challenge.button.WaveView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

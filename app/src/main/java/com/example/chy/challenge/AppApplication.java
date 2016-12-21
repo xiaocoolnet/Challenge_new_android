@@ -3,6 +3,7 @@ package com.example.chy.challenge;
 import android.app.Application;
 import android.content.Context;
 
+import com.android.volley.RequestQueue;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -14,11 +15,16 @@ public class AppApplication extends Application {
     public static DisplayImageOptions options;
     private static final String TAG = "AliyunApplication";
     private Context applicationContext;
+    private static RequestQueue requestQueue;
+    private static RequestQueue requestQueueFile;
+    private static AppApplication myApplication;
 
     @Override
     public void onCreate() {
         super.onCreate();
         applicationContext = this;
+        myApplication = new AppApplication();
+
         initImageLoader();
     }
 
@@ -33,6 +39,27 @@ public class AppApplication extends Application {
                 .showImageForEmptyUri(R.mipmap.ic_wode)
                 .showImageOnFail(R.mipmap.ic_wode)
                 .build();
+    }
+
+    /**
+     * 拿到消息队列
+     */
+    public static RequestQueue getRequestQueue() {
+        return requestQueue;
+    }
+
+    /**
+     * 拿到消息队列
+     */
+    public static RequestQueue getFileRequestQueue() {
+        return requestQueueFile;
+    }
+
+    /**
+     * 拿到消息队列
+     */
+    public static AppApplication getApplication() {
+        return myApplication;
     }
 
 }

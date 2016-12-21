@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -21,7 +23,6 @@ import com.example.chy.challenge.Findpersoanl.talentmain.talent.findpersonal.bea
 import com.example.chy.challenge.NetInfo.UserRequest;
 import com.example.chy.challenge.R;
 import com.example.chy.challenge.Utils.NetBaseUtils;
-import com.example.chy.challenge.login.register.register_bean.UserInfo;
 import com.example.chy.challenge.login.register.register_bean.UserInfoBean;
 import com.example.chy.challenge.pnlllist.PullToRefreshBase;
 import com.example.chy.challenge.pnlllist.PullToRefreshListView;
@@ -215,6 +216,12 @@ public class FindPersonalFragment extends Fragment{
         });
         setLastData();
         lv_view = pulllistview.getRefreshableView();
+        lv_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(mContext,DetailFindPersonalActivity.class));
+            }
+        });
         lv_view.setDivider(null);//去掉listview自带的分割线
 //        viewH = LayoutInflater.from(getActivity()).inflate(R.layout.firstpagenew, null);//添加listview头（position-1）
 //        lv_view.addHeaderView(viewH);

@@ -43,10 +43,11 @@ public class Login extends Activity implements View.OnClickListener{
         setContentView(R.layout.login);
         mContext = this;
         infobean = new UserInfoBean(mContext);
-//        if(infobean.isLogined()){
-//            Intent intent = new Intent(mContext,Identity.class);
-//            startActivity(intent);
-//        }
+        if(infobean.isLogined()){
+            Intent intent = new Intent(mContext,Identity.class);
+            intent.putExtra("pagetype","login");
+            startActivity(intent);
+        }
         initview();
 
     }

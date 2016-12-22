@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.chy.challenge.Findpersoanl.talentmain.talent.findpersonal.FindPersonalFragment;
 import com.example.chy.challenge.R;
 import com.example.chy.challenge.findcommany.findwork.Find_Work_Fragment;
+import com.example.chy.challenge.findcommany.findwork.pop.Pop_findwork_pakect;
 
 /**
  * Created by Administrator on 2016/12/1 0001.
@@ -29,14 +30,16 @@ public class Find_work extends Fragment{
     private String pagename;
     private Find_Work_Fragment work;
     private RadioButton findwork_rbtn_news,findwork_rbtn_hot,findwork_rbtn_lately,findwork_rbtn_evaluation,findwork_rbtn_salary,findwork_rbtn_redenvelope;
-    private TextView findwork_tv_news,findwork_tv_hot,findwork_tv_lately,findwork_tv_evaluation,findwork_tv_salary,findwork_tv_redenvelope;
+    private TextView textview,findwork_tv_news,findwork_tv_hot,findwork_tv_lately,findwork_tv_evaluation,findwork_tv_salary,findwork_tv_redenvelope;
     private RadioGroup findwork_rg;
+    private Pop_findwork_pakect poppaject;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.find_work,container,false);
         mContext = getActivity();
         getview();
+        poppaject = new Pop_findwork_pakect(Find_work.this);
         bundle = getArguments();
         if (bundle != null){
             FragmentManager fragmentManager = getFragmentManager();
@@ -97,22 +100,40 @@ public class Find_work extends Fragment{
                     work.setArguments(bundle);
                     transaction.replace(R.id.finadwork_ril_all, work);
                     transaction.commitAllowingStateLoss();
-                }else if ("红包".equals(pagename)){
+                }else if ("职位红包".equals(pagename)){
                     findwork_rbtn_redenvelope.setChecked(true);
                     findwork_tv_redenvelope.setTextColor(getResources().getColor(R.color.green));
                     work = new Find_Work_Fragment();
                     bundle = new Bundle();
-                    bundle.putString("pagename", "红包");
+                    bundle.putString("pagename", "职位红包");
+                    work.setArguments(bundle);
+                    transaction.replace(R.id.finadwork_ril_all, work);
+                    transaction.commitAllowingStateLoss();
+                }else if ("面试红包".equals(pagename)){
+                    findwork_rbtn_redenvelope.setChecked(true);
+                    findwork_tv_redenvelope.setTextColor(getResources().getColor(R.color.green));
+                    work = new Find_Work_Fragment();
+                    bundle = new Bundle();
+                    bundle.putString("pagename", "面试红包");
+                    work.setArguments(bundle);
+                    transaction.replace(R.id.finadwork_ril_all, work);
+                    transaction.commitAllowingStateLoss();
+                }else if ("就职红包".equals(pagename)){
+                    findwork_rbtn_redenvelope.setChecked(true);
+                    findwork_tv_redenvelope.setTextColor(getResources().getColor(R.color.green));
+                    work = new Find_Work_Fragment();
+                    bundle = new Bundle();
+                    bundle.putString("pagename", "就职红包");
                     work.setArguments(bundle);
                     transaction.replace(R.id.finadwork_ril_all, work);
                     transaction.commitAllowingStateLoss();
                 }
             }
-        }else{
         }
         return view;
     }
     private void getview() {
+        textview = (TextView) view.findViewById(R.id.textView);
         findwork_rbtn_news = (RadioButton) view.findViewById(R.id.findwork_rbtn_news);//最新
         findwork_tv_news = (TextView) view.findViewById(R.id.findwork_tv_news);//最新tv
 
@@ -190,16 +211,55 @@ public class Find_work extends Fragment{
                         transaction.commitAllowingStateLoss();
                         break;
                     case R.id.findwork_rbtn_redenvelope://红包
-                        findwork_tv_redenvelope.setTextColor(getResources().getColor(R.color.green));
-                        work = new Find_Work_Fragment();
-                        bundle = new Bundle();
-                        bundle.putString("pagename", "红包");
-                        work.setArguments(bundle);
-                        transaction.replace(R.id.finadwork_ril_all, work);
-                        transaction.commitAllowingStateLoss();
+                        poppaject.showAsDropDown(textview);
+                        find_workfragment();
                         break;
                 }
             }
         });
+    }
+    public void find_workfragment(){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        findwork_tv_redenvelope.setTextColor(getResources().getColor(R.color.green));
+        work = new Find_Work_Fragment();
+        bundle = new Bundle();
+        bundle.putString("pagename", "红包");
+        work.setArguments(bundle);
+        transaction.replace(R.id.finadwork_ril_all, work);
+        transaction.commitAllowingStateLoss();
+    }
+    public void find_workfragment2(){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        findwork_tv_redenvelope.setTextColor(getResources().getColor(R.color.green));
+        work = new Find_Work_Fragment();
+        bundle = new Bundle();
+        bundle.putString("pagename", "红包");
+        work.setArguments(bundle);
+        transaction.replace(R.id.finadwork_ril_all, work);
+        transaction.commitAllowingStateLoss();
+    }
+    public void find_workfragment3(){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        findwork_tv_redenvelope.setTextColor(getResources().getColor(R.color.green));
+        work = new Find_Work_Fragment();
+        bundle = new Bundle();
+        bundle.putString("pagename", "红包");
+        work.setArguments(bundle);
+        transaction.replace(R.id.finadwork_ril_all, work);
+        transaction.commitAllowingStateLoss();
+    }
+    public void find_workfragment4(){
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        findwork_tv_redenvelope.setTextColor(getResources().getColor(R.color.green));
+        work = new Find_Work_Fragment();
+        bundle = new Bundle();
+        bundle.putString("pagename", "红包");
+        work.setArguments(bundle);
+        transaction.replace(R.id.finadwork_ril_all, work);
+        transaction.commitAllowingStateLoss();
     }
 }

@@ -2,23 +2,29 @@ package com.example.chy.challenge.findcommany.resume;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chy.challenge.Findpersoanl.talentmain.talent.findpersonal.bean.FindPersonal_fragment_bean;
+import com.example.chy.challenge.NetInfo.NetBaseConstant;
 import com.example.chy.challenge.NetInfo.UserRequest;
 import com.example.chy.challenge.R;
 import com.example.chy.challenge.Utils.NetBaseUtils;
 import com.example.chy.challenge.Utils.NoScrollListView;
 import com.example.chy.challenge.button.RoundImageView;
 import com.example.chy.challenge.button.WaveView;
+import com.example.chy.challenge.findcommany.resume.adapter.Resume_education_mineadapter;
 import com.example.chy.challenge.login.register.register_bean.UserInfoBean;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,6 +50,7 @@ public class Mine_Resume extends Activity implements View.OnClickListener{
     private List<FindPersonal_fragment_bean.DataBean.ProjectBean> findprojectlist;
     private WaveView back;
     private TextView resume_realname;
+    private Resume_education_mineadapter resume;
 
     private Handler handler = new Handler(Looper.myLooper()) {
         @Override
@@ -181,6 +188,22 @@ public class Mine_Resume extends Activity implements View.OnClickListener{
         }
 
         private void getinfoView() {
+            if (findlistbean.getSex() != null&&findlistbean.getSex().length() > 0){
+                if ("0".equals(findlistbean.getSex().toString())){
+                    image_sex.setImageDrawable(getResources().getDrawable(R.mipmap.ic_nvsheng));
+                }else if ("1".equals(findlistbean.getSex().toString())){
+                    image_sex.setImageDrawable(getResources().getDrawable(R.mipmap.ic_nansheng));
+                }
+            }else {
+                image_sex.setVisibility(View.GONE);
+            }
+            if (findlistbean.getPhoto()!=null&&findlistbean.getPhoto().length() > 0){
+                imageLoader.displayImage(NetBaseConstant.NET_HOST + findlistbean.getPhoto(), headimage, options);
+            }
+            if (findlistbean.getEducation() != null&&findlistbean.getEducation().size()>0){
+                resume = new Resume_education_mineadapter(findedulist,1,mContext);
+                resume_education_list.setAdapter(resume);
+            }
             resume_realname.setText(findlistbean.getRealname()+"");
             adapter_location_city.setText(findlistbean.getCity().substring(0,3)+"");
             adapter_jobtime_worklife.setText(findlistbean.getWork_life()+"");
@@ -192,6 +215,22 @@ public class Mine_Resume extends Activity implements View.OnClickListener{
             resume_wantjobtime.setText(findlistbean.getJobstate()+"");
             resume_jobcompany.setText(findlistbean.getWork().get(0).getCompany_name()+"");
             resume_company_jobtime.setText(findlistbean.getWork().get(0).getWork_period()+"");
+            resume_company_jobposition.setText(findlistbean.getWork().get(0).getJobtype()+"");
+            String s = new String(findlistbean.getWork().get(0).getSkill());
+            String[]  destString = s.split("-");
+            if (destString[0] != null&&destString[0].length() > 0){
+                resume_skillone.setVisibility(View.VISIBLE);
+                resume_skillone.setText(destString[0]+"");
+            }else if (destString[1] != null&&destString[1].length() > 0){
+                resume_skilltwo.setVisibility(View.VISIBLE);
+                resume_skilltwo.setText(destString[1]+"");
+            }else if (destString[2] != null&&destString[2].length() > 0){
+                resume_skillthree.setVisibility(View.VISIBLE);
+                resume_skillthree.setText(destString[2]+"");
+            }
+            resume_projectname.setText(findlistbean.getProject().get(0).getProject_name()+"");
+            resume_projectdescrib.setText(findlistbean.getProject().get(0).getDescription_project()+"");
+            resume_mineadvantage.setText(findlistbean.getAdvantage()+"");
         }
     };
 
@@ -201,6 +240,9 @@ public class Mine_Resume extends Activity implements View.OnClickListener{
            ,resume_projectdescrib,resume_mineadvantage;
     private RoundImageView headimage;
     private NoScrollListView resume_education_list;
+    private ImageView image_sex;
+    private ImageLoader imageLoader = ImageLoader.getInstance();
+    private DisplayImageOptions options;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -212,6 +254,7 @@ public class Mine_Resume extends Activity implements View.OnClickListener{
     }
 
     private void getview() {
+        options = new DisplayImageOptions.Builder().showImageOnLoading(R.mipmap.ic_wode).showImageOnFail(R.mipmap.ic_wode).cacheInMemory(true).cacheOnDisc(true).build();
         back = (WaveView) findViewById(R.id.back);
         back.setOnClickListener(this);
         resume_realname = (TextView) findViewById(R.id.resume_realname);//真实姓名
@@ -234,9 +277,7 @@ public class Mine_Resume extends Activity implements View.OnClickListener{
         resume_projectname = (TextView) findViewById(R.id.resume_projectname);//项目名称
         resume_projectdescrib = (TextView) findViewById(R.id.resume_projectdescrib);//项目描述
         resume_mineadvantage = (TextView) findViewById(R.id.resume_mineadvantage);//我的优势
-//        String s = new String(nurseEmployDataList.get(position).getAddress());
-//        String[]  destString = s.split("-");
-//        vh.tvAddress.setText(destString[0]+ "-"+destString[1]+"");
+        image_sex = (ImageView) findViewById(R.id.image_sex);//性别图
     }
 
     @Override
@@ -252,7 +293,6 @@ public class Mine_Resume extends Activity implements View.OnClickListener{
             Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
         }
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){

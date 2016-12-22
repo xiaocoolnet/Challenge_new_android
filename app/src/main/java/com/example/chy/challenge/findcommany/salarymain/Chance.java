@@ -197,7 +197,27 @@ public class Chance extends Fragment implements View.OnClickListener {
         transaction = fragmentManager.beginTransaction();
         Find_work findwork = new Find_work();
         bundle = new Bundle();
-        bundle.putString("pagename", "红包");
+        bundle.putString("pagename", "职位红包");
+        findwork.setArguments(bundle);
+        transaction.replace(R.id.salary_fragment_layout, findwork);
+        transaction.commitAllowingStateLoss();
+    }
+    public void getIntentView7() {
+        fragmentManager = getFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+        Find_work findwork = new Find_work();
+        bundle = new Bundle();
+        bundle.putString("pagename", "面试红包");
+        findwork.setArguments(bundle);
+        transaction.replace(R.id.salary_fragment_layout, findwork);
+        transaction.commitAllowingStateLoss();
+    }
+    public void getIntentView8() {
+        fragmentManager = getFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+        Find_work findwork = new Find_work();
+        bundle = new Bundle();
+        bundle.putString("pagename", "就职红包");
         findwork.setArguments(bundle);
         transaction.replace(R.id.salary_fragment_layout, findwork);
         transaction.commitAllowingStateLoss();

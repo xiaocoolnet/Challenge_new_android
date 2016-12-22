@@ -52,29 +52,37 @@ public class Resume_education_adapter extends BaseAdapter{
     public View getView(final int position, View convertView, ViewGroup parent) {
         HolderView view = null;
         if (convertView == null){
-            convertView = View.inflate(mContext, R.layout.resume_education_adapter,null);
-            view = new HolderView();
-            view.tv_item_school = (TextView) convertView.findViewById(R.id.tv_item_school);
-            view.tv_item_time = (TextView) convertView.findViewById(R.id.tv_item_time);
-            view.ril_item_education = (WaveView) convertView.findViewById(R.id.ril_item_education);
-            convertView.setTag(view);
+            switch (type){
+                case 0:
+                    convertView = View.inflate(mContext, R.layout.resume_education_adapter,null);
+                    view = new HolderView();
+                    view.tv_item_school = (TextView) convertView.findViewById(R.id.tv_item_school);
+                    view.tv_item_time = (TextView) convertView.findViewById(R.id.tv_item_time);
+                    view.ril_item_education = (WaveView) convertView.findViewById(R.id.ril_item_education);
+                    convertView.setTag(view);
+                    break;
+            }
         }else{
             view = (HolderView) convertView.getTag();
         }
-        view.tv_item_school.setText(educationlist.get(position).getSchool()+"");
-        view.tv_item_time.setText(educationlist.get(position).getTime()+"");
-        view.ril_item_education.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent.setClass(mContext,Register_next_education.class);
-                educationbean = educationlist.get(position);
-                bundle = new Bundle();
-                bundle.putSerializable("educationbean",educationbean);
-                intent.putExtras(bundle);
-                intent.putExtra("pagetype","update");
-                mContext.startActivity(intent);
-            }
-        });
+        switch (type) {
+            case 0:
+                view.tv_item_school.setText(educationlist.get(position).getSchool() + "");
+                view.tv_item_time.setText(educationlist.get(position).getTime() + "");
+                view.ril_item_education.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    intent.setClass(mContext, Register_next_education.class);
+                    educationbean = educationlist.get(position);
+                    bundle = new Bundle();
+                    bundle.putSerializable("educationbean", educationbean);
+                    intent.putExtras(bundle);
+                    intent.putExtra("pagetype", "update");
+                    mContext.startActivity(intent);
+                }
+                });
+                break;
+        }
         return convertView;
     }
     class HolderView{

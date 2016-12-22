@@ -181,6 +181,7 @@
                             android:layout_marginTop="@dimen/activity_layout_15"
                             />
                         <ImageView
+                            android:id="@+id/image_sex"
                             android:layout_width="@dimen/activity_layout_20"
                             android:layout_height="@dimen/activity_layout_20"
                             android:layout_alignParentBottom="true"

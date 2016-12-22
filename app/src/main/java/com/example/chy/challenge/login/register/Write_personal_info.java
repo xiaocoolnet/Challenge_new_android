@@ -185,6 +185,28 @@ public class Write_personal_info extends Activity implements View.OnClickListene
                         write_et_upcontent.setText(s);
                         write_et_upcontent.setSelection(tempSelection);//设置光标在最后
                     }
+                }else if ("starttime".equals(type)){
+                    int number = num - s.length();
+                    write_tv_textnum_down.setText("" + number);
+                    selectionStart = write_et_upcontent.getSelectionStart();
+                    selectionEnd = write_et_upcontent.getSelectionEnd();
+                    if (temp.length() > num) {
+                        s.delete(selectionStart - 1, selectionEnd);
+                        int tempSelection = selectionStart;
+                        write_et_upcontent.setText(s);
+                        write_et_upcontent.setSelection(tempSelection);//设置光标在最后
+                    }
+                }else if ("endtime".equals(type)){
+                    int number = num - s.length();
+                    write_tv_textnum_down.setText("" + number);
+                    selectionStart = write_et_upcontent.getSelectionStart();
+                    selectionEnd = write_et_upcontent.getSelectionEnd();
+                    if (temp.length() > num) {
+                        s.delete(selectionStart - 1, selectionEnd);
+                        int tempSelection = selectionStart;
+                        write_et_upcontent.setText(s);
+                        write_et_upcontent.setSelection(tempSelection);//设置光标在最后
+                    }
                 }
             }
         });
@@ -242,6 +264,12 @@ public class Write_personal_info extends Activity implements View.OnClickListene
                 }else if ("projectname".equals(type)){//项目名称
                     Public_static_all.idprojectnamea = true;
                     info.setProjectname(write_et_upcontent.getText().toString()+"");
+                }else if ("starttime".equals(type)){//项目开始时间
+                    Public_static_all.idprojectnamec = true;
+                    info.setStarttime(write_et_upcontent.getText().toString()+"");
+                }else if ("endtime".equals(type)){//项目开始时间
+                    Public_static_all.idprojectnamed = true;
+                    info.setStarttime(write_et_upcontent.getText().toString()+"");
                 }
                 finish();
                 break;
@@ -304,9 +332,22 @@ public class Write_personal_info extends Activity implements View.OnClickListene
             write_tv_textnum_down.setText("20");
         }else if ("projectname".equals(type)){
             write_tv_title.setText("项目名称");
-            textView3.setText("/20");
-            num = 20;
-            write_tv_textnum_down.setText("20");
+            textView3.setText("/12");
+            textView3.setTextColor(getResources().getColor(R.color.green));
+            num = 12;
+            write_tv_textnum_down.setText("12");
+        }else if ("starttime".equals(type)){
+            write_tv_title.setText("开始时间");
+            textView3.setText("/10");
+            textView3.setTextColor(getResources().getColor(R.color.green));
+            num = 10;
+            write_tv_textnum_down.setText("10");
+        }else if ("endtime".equals(type)){
+            write_tv_title.setText("结束时间");
+            textView3.setText("/10");
+            textView3.setTextColor(getResources().getColor(R.color.green));
+            num = 10;
+            write_tv_textnum_down.setText("10");
         }else if ("QQ".equals(type)){
             write_tv_title.setText("QQ");
             ril_text_num.setVisibility(View.GONE);

@@ -17,6 +17,7 @@
         android:layerType="software"
         android:background="@drawable/dash_line" />
     <com.example.chy.challenge.Utils.NoScrollListView
+        android:id="@+id/lv_education"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

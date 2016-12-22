@@ -69,6 +69,9 @@
         <activity android:name=".login.register.commany_info.location.ActivityAddlocation"></activity>
         <activity android:name=".findcommany.resume.Write_personal_prohect"></activity>
         <activity android:name=".Findpersoanl.talentmain.talent.findpersonal.DetailFindPersonalActivity"/>
+        <activity android:name=".login.register.commany_info.Project_personal"/>
+        <activity android:name=".findcommany.resume.Write_resume_education"/>
+        <activity android:name=".findcommany.resume.Mine_Resume"/>
     </application>
 
 </manifest>

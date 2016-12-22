@@ -1,12 +1,13 @@
 package com.example.chy.challenge.Findpersoanl.talentmain.talent.findpersonal.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Administrator on 2016/11/9 0009.
  */
 
-public class FindPersonal_fragment_bean {
+public class FindPersonal_fragment_bean implements Serializable {
 
     /**
      * status : success
@@ -62,7 +63,7 @@ public class FindPersonal_fragment_bean {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable{
         private String userid;
         private String realname;
         private String usertype;
@@ -337,7 +338,7 @@ public class FindPersonal_fragment_bean {
             this.project = project;
         }
 
-        public static class EducationBean {
+        public static class EducationBean implements Serializable{
             private String userid;
             private String school;
             private String major;
@@ -403,7 +404,7 @@ public class FindPersonal_fragment_bean {
             }
         }
 
-        public static class WorkBean {
+        public static class WorkBean implements Serializable{
             private String userid;
             private String company_name;
             private String company_industry;
@@ -478,7 +479,7 @@ public class FindPersonal_fragment_bean {
             }
         }
 
-        public static class ProjectBean {
+        public static class ProjectBean implements Serializable{
             private String userid;
             private String project_name;
             private String start_time;

@@ -3,7 +3,6 @@ package com.example.chy.challenge.NetInfo;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.Settings;
 import android.util.Log;
 
 import com.example.chy.challenge.Utils.LogUtils;
@@ -11,8 +10,6 @@ import com.example.chy.challenge.Utils.NetBaseUtils;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -788,6 +785,46 @@ public class UserRequest {
                 parmas.add(new BasicNameValuePair("parentid",parentid));
                 String result = NetBaseUtils.getResponseForImg(UserNetConstant.GETDICTIONARYLIST,parmas,mContext);
                 Log.i("获取字典内容","--------------->"+result);
+                msg.what = KEY;
+                msg.obj = result;
+                handler.sendMessage(msg);
+            }
+        }.start();
+    }
+    /**
+     * 获取教育经历
+     */
+    public void GETMYEDULIST(final String userid,final int KEY){
+        new Thread(){
+            Message msg = Message.obtain();
+            @Override
+            public void run() {
+                List<NameValuePair> parmas = new ArrayList<NameValuePair>();
+                parmas.add(new BasicNameValuePair("userid",userid));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.GETMYEDULIST,parmas,mContext);
+                Log.i("获取教育经历","--------------->"+result);
+                msg.what = KEY;
+                msg.obj = result;
+                handler.sendMessage(msg);
+            }
+        }.start();
+    }
+    /**
+     * 发布项目经验userid,project_name名称,start_time开始时间,end_time结束时间,description_project项目描述
+     */
+    public void PUBLISHPROJECT(final String userid,final String project_name,final String start_time,final String end_time,final String description_project,final int KEY){
+        new Thread(){
+            Message msg = Message.obtain();
+            @Override
+            public void run() {
+                List<NameValuePair> parmas = new ArrayList<NameValuePair>();
+                parmas.add(new BasicNameValuePair("userid",userid));
+                parmas.add(new BasicNameValuePair("project_name",project_name));
+                parmas.add(new BasicNameValuePair("start_time",start_time));
+                parmas.add(new BasicNameValuePair("end_time",end_time));
+                parmas.add(new BasicNameValuePair("description_project",description_project));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.PUBLISHPROJECT,parmas,mContext);
+                Log.i("发布项目经验","--------------->"+result);
                 msg.what = KEY;
                 msg.obj = result;
                 handler.sendMessage(msg);

@@ -25,6 +25,7 @@ import com.example.chy.challenge.R;
 import com.example.chy.challenge.Utils.NetBaseUtils;
 import com.example.chy.challenge.button.Public_static_all;
 import com.example.chy.challenge.button.WaveView;
+import com.example.chy.challenge.findcommany.resume.bean.Resume_education_bean;
 import com.example.chy.challenge.login.register.Write_personal_info;
 import com.example.chy.challenge.login.register.personal_pop.Commany_personal_education;
 import com.example.chy.challenge.login.register.personal_pop.Pop_mine_readtime;
@@ -54,6 +55,7 @@ public class Register_next_education extends Activity implements View.OnClickLis
     private Intent intent;
     private ScrollView scrollview;
     private Handler mHandler = new Handler();
+    private Resume_education_bean.DataBean educationbean;
 
     private Handler handler = new Handler(Looper.myLooper()){
         @Override
@@ -118,8 +120,20 @@ public class Register_next_education extends Activity implements View.OnClickLis
         mContext = this;
         infobean = new UserInfoBean(mContext);
         info = new UserInfo(mContext);
-//        intent = getIntent();
-//        pagetype = intent.getStringExtra("pagetype");
+        intent = getIntent();
+        pagetype = intent.getStringExtra("pagetype");
+        if (pagetype != null&&pagetype.length() > 0){
+            if ("update".equals(pagetype)) {
+                educationbean = (Resume_education_bean.DataBean) intent.getSerializableExtra("educationbean");
+                if (educationbean != null){
+                    resume_et_school.setText(educationbean.getSchool()+"");
+                    resume_et_major.setText(educationbean.getMajor()+"");
+                    resume_tv_readtime.setText(educationbean.getTime()+"");
+                    resume_tv_education.setText(educationbean.getDegree()+"");
+                    resume_et_experience.setText(educationbean.getExperience()+"");
+                }
+            }
+        }
         education = new Commany_personal_education(Register_next_education.this);
         readtime = new Pop_mine_readtime(Register_next_education.this);
         isJob(false);

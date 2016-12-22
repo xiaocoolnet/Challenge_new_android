@@ -24,7 +24,6 @@ import com.example.chy.challenge.R;
 import com.example.chy.challenge.Utils.NetBaseUtils;
 import com.example.chy.challenge.button.Public_static_all;
 import com.example.chy.challenge.button.WaveView;
-import com.example.chy.challenge.login.register.Register_Commany_info;
 import com.example.chy.challenge.login.register.Write_personal_info;
 import com.example.chy.challenge.login.register.personal_pop.Pop_mine_jobtime;
 import com.example.chy.challenge.login.register.register_bean.UserInfo;
@@ -141,6 +140,7 @@ public class Write_personal_jobnews extends Activity implements View.OnClickList
         popjobtime = new Pop_mine_jobtime(Write_personal_jobnews.this);
         isJob(false);
         getView();
+        getinfo();
     }
 
     private void getView() {
@@ -269,19 +269,20 @@ public class Write_personal_jobnews extends Activity implements View.OnClickList
         companyshow = tv_skills_show.getText().toString();
         companyjobtime = tv_work_time.getText().toString();
         companycontent = et_describe.getText().toString();
-        if (companyname == null||companyname.length() <= 0){
+        if ("请输入公司名称".equals(companyname)||companyname == null||companyname.length() <= 0){
             Toast.makeText(mContext, "请输入公司名称", Toast.LENGTH_SHORT).show();
-        }else if (companyindustry == null||companyindustry.length() <= 0){
+        }else if ("请选择行业".equals(companyindustry)||companyindustry == null||companyindustry.length() <= 0){
             Toast.makeText(mContext, "请选择公司行业", Toast.LENGTH_SHORT).show();
-        }else if (companytype == null||companytype.length() <= 0){
+        }else if ("选择职位类型".equals(companytype)||companytype == null||companytype.length() <= 0){
             Toast.makeText(mContext, "请选择职位类型", Toast.LENGTH_SHORT).show();
-        }else if (companyshow == null||companyshow.length() <= 0){
+        }else if ("选择技能".equals(companytype)||companyshow == null||companyshow.length() <= 0){
             Toast.makeText(mContext, "请选择技能", Toast.LENGTH_SHORT).show();
-        }else if (companyjobtime == null||companyjobtime.length() <= 0){
+        }else if ("选择任职时间段".equals(companytype)||companyjobtime == null||companyjobtime.length() <= 0){
             Toast.makeText(mContext, "请选择任职时间", Toast.LENGTH_SHORT).show();
         }else if (companycontent == null||companycontent.length() <= 0){
             Toast.makeText(mContext, "请填写工作内容", Toast.LENGTH_SHORT).show();
         }else{
+            companyshow = info.getSkills_show1()+"-"+info.getSkills_show2()+"-"+info.getSkills_show3();
             if (NetBaseUtils.isConnnected(mContext)) {
                 dialog.setMessage("正在提交..");
                 dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -309,7 +310,7 @@ public class Write_personal_jobnews extends Activity implements View.OnClickList
         if (Public_static_all.isJobD&&Public_static_all.isJobd){//公司行业
             work_tv_commany.setText(info.getCompany_nameone());
         }
-        getinfo();
+
     }
 
     private void getinfo() {

@@ -137,6 +137,7 @@ public class Register_Mine_intention extends Activity implements View.OnClickLis
         popstate = new Pop_mine_jobstate(Register_Mine_intention.this);
         isJob(false);
         getvuiew();
+        getinfo();
     }
 
     private void getvuiew() {
@@ -254,7 +255,7 @@ public class Register_Mine_intention extends Activity implements View.OnClickLis
         }else if (Public_static_all.isintenttionB&&Public_static_all.isintenttionb){
             tv_industry_type.setText(info.getPersonal_industry()+"");
         }
-        getinfo();
+
     }
 
     private void getinfo() {

@@ -30,5 +30,6 @@
     <color name="tv_gantanhao">#FF9800</color>
     <color name="dialog_cancel">#D4D4D4</color>
     <color name="dialog_sure">#8ED4B3</color>
+    <color name="bg_red">#FF4B45</color>
 
 </resources>

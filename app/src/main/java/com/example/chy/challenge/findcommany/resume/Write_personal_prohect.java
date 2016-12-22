@@ -15,8 +15,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,12 +23,10 @@ import com.example.chy.challenge.R;
 import com.example.chy.challenge.Utils.NetBaseUtils;
 import com.example.chy.challenge.button.Public_static_all;
 import com.example.chy.challenge.button.WaveView;
-import com.example.chy.challenge.findcommany.resume.pop.Pop_project_jobtime;
 import com.example.chy.challenge.login.register.Write_personal_info;
 import com.example.chy.challenge.login.register.commany_info.Job_Show;
-import com.example.chy.challenge.login.register.commany_info.Job_type;
+import com.example.chy.challenge.login.register.commany_info.Project_personal;
 import com.example.chy.challenge.login.register.commany_info.Register_Mine_advantage;
-import com.example.chy.challenge.login.register.personal_pop.Pop_mine_jobtime;
 import com.example.chy.challenge.login.register.register_bean.UserInfo;
 import com.example.chy.challenge.login.register.register_bean.UserInfoBean;
 
@@ -42,8 +38,8 @@ import org.json.JSONObject;
  */
 
 public class Write_personal_prohect extends Activity implements View.OnClickListener{
-    private static final int PUBLISHWORK = 1;
     private static final int GETMYWORKLIST = 2;
+    private static final int PUBLISHPROJECT = 1;
     private WaveView back,project_name,project_starttime,project_endtime,project_describ,submit_project;
     private TextView tv_project_name,tv_project_starttime,tv_project_endtime,tv_project_describ,textview;
     private Intent intent;
@@ -51,8 +47,7 @@ public class Write_personal_prohect extends Activity implements View.OnClickList
     private UserInfoBean infoBean;
     private UserInfo info;
     private ProgressDialog dialog;
-    private String projectname,projectstarttime,projectendtime,projectdescrib;
-    private Pop_project_jobtime popjobtime;
+    private String projectname,projectstarttime,projectendtime,projectdescrib,decrib;
     private Handler mHandler = new Handler();
 
     private Handler handler = new Handler(Looper.myLooper()){
@@ -60,7 +55,7 @@ public class Write_personal_prohect extends Activity implements View.OnClickList
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what){
-                case PUBLISHWORK:
+                case PUBLISHPROJECT:
                     if (msg.obj != null){
                         String result = (String) msg.obj;
                         try {
@@ -114,7 +109,12 @@ public class Write_personal_prohect extends Activity implements View.OnClickList
                                 tv_project_name.setText(josnobj.getString("project_name")+"");
                                 tv_project_starttime.setText(josnobj.getString("start_time")+"");
                                 tv_project_endtime.setText(josnobj.getString("end_time")+"");
-                                tv_project_describ.setText(josnobj.getString("description_project")+"");
+                                if (josnobj.getString("description_project") != null&&josnobj.getString("description_project").length() > 0) {
+                                    tv_project_describ.setText("完整");
+                                    decrib = josnobj.getString("description_project");
+                                }else{
+                                    tv_project_describ.setText("请填写项目描述");
+                                }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -132,13 +132,13 @@ public class Write_personal_prohect extends Activity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.resume_work_experience);
+        setContentView(R.layout.write_personal_prihect);
         mContext = this;
         infoBean = new UserInfoBean(mContext);
         info = new UserInfo(mContext);
-        popjobtime = new Pop_project_jobtime(Write_personal_prohect.this);
         isJob(false);
         getView();
+        getinfo();
     }
 
     private void getView() {
@@ -186,18 +186,33 @@ public class Write_personal_prohect extends Activity implements View.OnClickList
                 overridePendingTransition(R.anim.activity_int_left, R.anim.activity_out_top);
                 break;
             case R.id.project_starttime://项目开始时间
-                popjobtime.showAsDropDown(textview,"start");
+                intent = new Intent(mContext, Write_personal_info.class);
+                intent.putExtra("type","starttime");
+                Public_static_all.idprojectnameC = true;
+                startActivity(intent);
+                //设置切换动画，从左边进入，上面退出
+                overridePendingTransition(R.anim.activity_int_left, R.anim.activity_out_top);
                 break;
             case R.id.project_endtime://项目结束时间
-                popjobtime.showAsDropDown(textview,"end");
+                intent = new Intent(mContext, Write_personal_info.class);
+                intent.putExtra("type","endtime");
+                Public_static_all.idprojectnameD = true;
+                startActivity(intent);
+                //设置切换动画，从左边进入，上面退出
+                overridePendingTransition(R.anim.activity_int_left, R.anim.activity_out_top);
                 break;
             case R.id.project_describ://项目描述
-                intent = new Intent(mContext,Job_Show.class);
+                intent = new Intent(mContext,Project_personal.class);
+                if (decrib != null&&decrib.length() > 0){
+                    intent.putExtra("decrib",decrib);
+                }else{
+                    intent.putExtra("decrib","");
+                }
                 Public_static_all.idprojectnameB = true;
                 startActivity(intent);
                 break;
             case R.id.submit_project://提交
-                Toast.makeText(mContext,"此功能暂未开放", Toast.LENGTH_SHORT).show();
+                submitjob();
                 break;
         }
     }
@@ -207,21 +222,21 @@ public class Write_personal_prohect extends Activity implements View.OnClickList
         projectstarttime = tv_project_starttime.getText().toString();
         projectendtime = tv_project_endtime.getText().toString();
         projectdescrib = tv_project_describ.getText().toString();
-        if (projectname == null||projectname.length() <= 0){
+        if ("请输入项目名称".equals(projectname)||projectname == null||projectname.length() <= 0){
             Toast.makeText(mContext, "请输入项目名称", Toast.LENGTH_SHORT).show();
-        }else if (projectstarttime == null||projectstarttime.length() <= 0){
-            Toast.makeText(mContext, "请选择开始时间", Toast.LENGTH_SHORT).show();
-        }else if (projectendtime == null||projectendtime.length() <= 0){
-            Toast.makeText(mContext, "请选择结束时间", Toast.LENGTH_SHORT).show();
-        }else if (projectdescrib == null||projectdescrib.length() <= 0){
+        }else if ("请填写开始时间".equals(projectstarttime)||projectstarttime == null||projectstarttime.length() <= 0){
+            Toast.makeText(mContext, "请填写开始时间", Toast.LENGTH_SHORT).show();
+        }else if ("请填写结束时间".equals(projectendtime)||projectendtime == null||projectendtime.length() <= 0){
+            Toast.makeText(mContext, "请填写结束时间", Toast.LENGTH_SHORT).show();
+        }else if ("请填写项目描述".equals(projectdescrib)||projectdescrib == null||projectdescrib.length() <= 0){
             Toast.makeText(mContext, "请填写项目描述", Toast.LENGTH_SHORT).show();
         }else{
             if (NetBaseUtils.isConnnected(mContext)) {
                 dialog.setMessage("正在提交..");
                 dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 dialog.show();
-                //                   userid,company_name公司名称,company_industry公司行业,jobtype职位类别,skill技能,work_period任职时间段,content工作内容
-//                new UserRequest(mContext, handler).PUBLISHWORK(infoBean.getUserid(),companyname,companyindustry,companytype,companyshow,companyjobtime,companycontent, PUBLISHWORK);
+                // userid,project_name名称,start_time开始时间,end_time结束时间,description_project项目描述
+                new UserRequest(mContext, handler).PUBLISHPROJECT(infoBean.getUserid(),projectname,projectstarttime,projectendtime,info.getProjectdescrip(), PUBLISHPROJECT);
             } else {
                 Toast.makeText(mContext, R.string.net_error, Toast.LENGTH_SHORT).show();
             }
@@ -235,9 +250,14 @@ public class Write_personal_prohect extends Activity implements View.OnClickList
             tv_project_name.setText(info.getProjectname());
         }
         if (Public_static_all.idprojectnameB&&Public_static_all.idprojectnameb){//职位类型
-            tv_project_describ.setText("已填写");
+            tv_project_describ.setText("完整");
         }
-        getinfo();
+        if (Public_static_all.idprojectnameC&&Public_static_all.idprojectnamec){//开始时间
+            tv_project_starttime.setText(info.getStarttime());
+        }
+        if (Public_static_all.idprojectnameD&&Public_static_all.idprojectnamed){//结束时间
+            tv_project_endtime.setText(info.getEndtime());
+        }
     }
 
     private void getinfo() {
@@ -253,6 +273,10 @@ public class Write_personal_prohect extends Activity implements View.OnClickList
         Public_static_all.idprojectnamea = isJob;
         Public_static_all.idprojectnameB = isJob;
         Public_static_all.idprojectnameb = isJob;
+        Public_static_all.idprojectnameC = isJob;
+        Public_static_all.idprojectnamec = isJob;
+        Public_static_all.idprojectnameD = isJob;
+        Public_static_all.idprojectnamed = isJob;
     }
 
 }

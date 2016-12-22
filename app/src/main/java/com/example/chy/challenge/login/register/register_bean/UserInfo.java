@@ -72,8 +72,36 @@ public class UserInfo{
     private String personal_type;//个人期望职位
     private String personal_industry;//个人期望行业
 
-    private String projectname;
-    private String projectdescrip;
+    private String projectname;//项目名称
+    private String projectdescrip;//项目描述
+    private String starttime;//项目开始时间
+    private String endtime;//项目结束时间
+
+    public String getStarttime() {
+        if("".equals(mySharedPreferences.getString("Starttime","").toString())){
+            return "";
+        }
+        return mySharedPreferences.getString("Starttime","").toString();
+    }
+
+    public void setStarttime(String starttime) {
+        editor.putString("Starttime",starttime);
+        editor.commit();
+        this.starttime = starttime;
+    }
+
+    public String getEndtime() {
+        if("".equals(mySharedPreferences.getString("Endtime","").toString())){
+            return "";
+        }
+        return mySharedPreferences.getString("Endtime","").toString();
+    }
+
+    public void setEndtime(String endtime) {
+        editor.putString("Endtime",endtime);
+        editor.commit();
+        this.endtime = endtime;
+    }
 
     public String getProjectname() {
         if("".equals(mySharedPreferences.getString("Projectname","").toString())){

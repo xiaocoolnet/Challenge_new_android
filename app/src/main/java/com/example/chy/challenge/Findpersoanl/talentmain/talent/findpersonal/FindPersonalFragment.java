@@ -131,6 +131,7 @@ public class FindPersonalFragment extends Fragment{
                                             findworklistbean.setSkill(objjson.getString("skill"));// "skill": "电子商务-智能硬件-用户研究",
                                             findworklistbean.setCreate_time(objjson.getString("create_time"));//"create_time": "1478143981",
                                             findworklistbean.setContent(objjson.getString("content"));//"content": "4~5万"
+                                            findworklistbean.setWork_period(objjson.getString("work_period"));
                                             findworklist.add(findworklistbean);
                                         }
                                         findlistbean.setWork(findworklist);
@@ -219,7 +220,11 @@ public class FindPersonalFragment extends Fragment{
         lv_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(mContext,DetailFindPersonalActivity.class));
+                Intent intent = new Intent(mContext,DetailFindPersonalActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("findItem",findlist.get(position));
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
         lv_view.setDivider(null);//去掉listview自带的分割线

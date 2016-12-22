@@ -83,9 +83,16 @@
                                 android:id="@+id/tv_project_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="输入项目名称"
+                                android:text="请输入项目名称"
                                 android:textColor="@color/gray4"
                                 android:textSize="@dimen/activity_text_14"
+                                />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@mipmap/ic_jiantoulv"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/activity_layout_10"
                                 />
                         </LinearLayout>
                     </com.example.chy.challenge.button.WaveView>
@@ -119,12 +126,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/gray4"
+                                android:text="请输入开始时间"
                                 android:textSize="@dimen/activity_text_14"
                                 />
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@mipmap/jaintou_gray"
+                                android:background="@mipmap/ic_jiantoulv"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginLeft="@dimen/activity_layout_10"
                                 />
@@ -161,12 +169,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/gray4"
+                                android:text="请输入结束时间"
                                 android:textSize="@dimen/activity_text_14"
                                 />
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@mipmap/jaintou_gray"
+                                android:background="@mipmap/ic_jiantoulv"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginLeft="@dimen/activity_layout_10"
                                 />
@@ -202,13 +211,14 @@
                                 android:id="@+id/tv_project_describ"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:text="请输入项目描述"
                                 android:textColor="@color/gray4"
                                 android:textSize="@dimen/activity_text_14"
                                 />
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@mipmap/jaintou_gray"
+                                android:background="@mipmap/ic_jiantoulv"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginLeft="@dimen/activity_layout_10"
                                 />

@@ -257,6 +257,7 @@ public class Register_Commany_info extends Activity implements View.OnClickListe
         intentpage = getIntent();
         pagetype = intentpage.getStringExtra("pagetype");
         getView();
+        getiscompany(false);
         if ("login0".equals(pagetype)||"register".equals(pagetype)) {
             if (Public_static_all.iscompanyI&&Public_static_all.iscompanyi){
                 imageLoader.displayImage(NetBaseConstant.NET_HOST + "/" + info.getPhoto(), heafimage, options);
@@ -280,10 +281,8 @@ public class Register_Commany_info extends Activity implements View.OnClickListe
                 tv_weibo.setText(info.getWeibo());
             }
         }else if ("company".equals(pagetype)){
-            getiscompany(false);
             getpersonanews();
         }else if ("login2".equals(pagetype)){
-            getiscompany(false);
             if (infobean.getPhoto() != null&&infobean.getPhoto().length() > 0){
                 imageLoader.displayImage(NetBaseConstant.NET_HOST + "/" + infobean.getPhoto(), heafimage, options);
             }else if (infobean.getRealname() != null&&infobean.getRealname().length() > 0){
@@ -407,6 +406,7 @@ public class Register_Commany_info extends Activity implements View.OnClickListe
                 break;
             case R.id.company_relevance_submit:
                 Intent intent = new Intent(mContext,Register_next_education.class);
+                intent.putExtra("pagetype","register");
                 startActivity(intent);
 //                getpersonal();
                 break;
@@ -533,6 +533,33 @@ public class Register_Commany_info extends Activity implements View.OnClickListe
             e.printStackTrace();
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (Public_static_all.iscompanyI&&Public_static_all.iscompanyi){
+            imageLoader.displayImage(NetBaseConstant.NET_HOST + "/" + info.getPhoto(), heafimage, options);
+        }
+        if (Public_static_all.iscompanyJ&&Public_static_all.iscompanyj){
+            tv_realname.setText(info.getRealname());
+        }
+        if (Public_static_all.iscompanyK&&Public_static_all.iscompanyk){
+            tv_local.setText(info.getCity());
+        }
+        if (Public_static_all.iscompanyL&&Public_static_all.iscompanyl){
+            tv_jobtime.setText(info.getEmail());
+        }
+        if (Public_static_all.iscompanyM&&Public_static_all.iscompanym){
+            tv_qq.setText(info.getQq());
+        }
+        if (Public_static_all.iscompanyN&&Public_static_all.iscompanyn){
+            tv_weixin.setText(info.getWeixin());
+        }
+        if (Public_static_all.iscompanyO&&Public_static_all.iscompanyo){
+            tv_weibo.setText(info.getWeibo());
+        }
+    }
+
     private void getiscompany(boolean iscompany){
         Public_static_all.iscompanyI = iscompany;
         Public_static_all.iscompanyi = iscompany;

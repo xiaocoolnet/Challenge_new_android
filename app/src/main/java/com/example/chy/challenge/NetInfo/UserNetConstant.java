@@ -78,4 +78,8 @@ public interface UserNetConstant extends NetBaseConstant {
     public final static String GETMYINTENSION = NET_BASE_HOST + "&a=getMyIntension";
     //获取我的工作实习经历
     public final static String GETMYWORKLIST = NET_BASE_HOST + "&a=getMyWorkList";
+    //发布项目经验
+    public final static String PUBLISHPROJECT = NET_BASE_HOST + "&a=PublishProject";
+    //获取教育经历
+    public final static String GETMYEDULIST = NET_BASE_HOST + "&a=getMyEduList";
 }

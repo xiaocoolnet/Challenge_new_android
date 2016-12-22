@@ -1,8 +1,6 @@
 package com.example.chy.challenge.findcommany.salarymain;
 
-import android.app.Activity;
 import android.app.Fragment;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +10,6 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.EditText;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,20 +18,16 @@ import com.example.chy.challenge.NetInfo.NetBaseConstant;
 import com.example.chy.challenge.NetInfo.UserRequest;
 import com.example.chy.challenge.R;
 import com.example.chy.challenge.Utils.NetBaseUtils;
-import com.example.chy.challenge.button.Public_static_all;
 import com.example.chy.challenge.button.RevealButton;
 import com.example.chy.challenge.button.RoundImageView;
 import com.example.chy.challenge.button.WaveView;
+import com.example.chy.challenge.findcommany.resume.Mine_Resume;
 import com.example.chy.challenge.findcommany.resume.Write_personal_prohect;
-import com.example.chy.challenge.login.register.Write_personal_info;
-import com.example.chy.challenge.login.register.commany_info.Job_Show;
-import com.example.chy.challenge.login.register.commany_info.Job_experice;
-import com.example.chy.challenge.login.register.commany_info.Job_type;
+import com.example.chy.challenge.findcommany.resume.Write_resume_education;
+import com.example.chy.challenge.login.register.Register_Commany_info;
 import com.example.chy.challenge.login.register.commany_info.Register_Mine_advantage;
 import com.example.chy.challenge.login.register.commany_info.Register_Mine_intention;
 import com.example.chy.challenge.login.register.commany_info.Write_personal_jobnews;
-import com.example.chy.challenge.login.register.personal_pop.Pop_mine_jobtime;
-import com.example.chy.challenge.login.register.register_bean.UserInfo;
 import com.example.chy.challenge.login.register.register_bean.UserInfoBean;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -155,6 +146,7 @@ public class Resume extends Fragment implements View.OnClickListener {
                                     }
                                     findlistbean.setWork(findworklist);
                                 } else {
+                                    findworklistbean = new FindPersonal_fragment_bean.DataBean.WorkBean();
                                     findworklistbean.setUserid("");// "userid": "301",
                                     findworklistbean.setCompany_name("");// "company_name": "校酷",
                                     findworklistbean.setCompany_industry("");// "company_industry": "交互设计",
@@ -182,6 +174,7 @@ public class Resume extends Fragment implements View.OnClickListener {
                                     }
                                     findlistbean.setProject(findprojectlist);
                                 } else {
+                                    findprojectlistbean = new FindPersonal_fragment_bean.DataBean.ProjectBean();
                                     findprojectlistbean.setUserid("");// " "userid": "301",
                                     findprojectlistbean.setProject_name("");// "project_name": "可口可乐了",
                                     findprojectlistbean.setStart_time("");// "start_time": "2011年.1月",
@@ -325,7 +318,8 @@ public class Resume extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), Objective.class));
                 break;*/
             case R.id.education:
-
+                intent = new Intent(mContext, Write_resume_education.class);
+                startActivity(intent);
                 break;
             case R.id.work_experience:
 //                startActivity(new Intent(getActivity(), WorkExperience.class));
@@ -341,14 +335,18 @@ public class Resume extends Fragment implements View.OnClickListener {
                 intent = new Intent(mContext, Register_Mine_advantage.class);
                 startActivity(intent);
                 break;
-            case R.id.objective:
+            case R.id.objective://意向
                 intent = new Intent(mContext, Register_Mine_intention.class);
                 startActivity(intent);
                 break;
-            case R.id.btn_look_allresume:
-
+            case R.id.btn_look_allresume://预览简历
+                intent = new Intent(mContext, Mine_Resume.class);
+                startActivity(intent);
                 break;
-            case R.id.updata_personal_info:
+            case R.id.updata_personal_info://个人信息
+                intent = new Intent(mContext, Register_Commany_info.class);
+                intent.putExtra("pagetype","company");
+                startActivity(intent);
                 break;
             default:
                 break;

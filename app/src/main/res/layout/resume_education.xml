@@ -300,6 +300,5 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/activity_layout_0.5"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/activity_layout_50"
         />
 </RelativeLayout>

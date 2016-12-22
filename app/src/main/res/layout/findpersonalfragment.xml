@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/gray5"
     >
     <RelativeLayout
         android:id="@+id/ril_back"
@@ -20,11 +21,27 @@
             android:textSize="@dimen/activity_text_18"
             android:gravity="center"
             />
+        <com.example.chy.challenge.button.WaveView
+            android:id="@+id/education_update"
+            android:layout_width="@dimen/activity_layout_45"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="编辑"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/activity_text_16"
+                />
+        </com.example.chy.challenge.button.WaveView>
     </RelativeLayout>
     <com.example.chy.challenge.pnlllist.PullToRefreshListView
         android:id="@+id/pulllistview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/gray5"
         android:drawSelectorOnTop="false"
         android:scrollbars="none"

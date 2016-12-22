@@ -290,7 +290,7 @@ public class Black_Friend extends Activity implements View.OnClickListener {
         lv_view = pulllistview.getRefreshableView();
         lv_view.setDivider(null);//去掉listview自带的分割线
 //        viewH = LayoutInflater.from(getActivity()).inflate(R.layout.firstpagenew, null);//添加listview头（position-1）
-//        lv_view.addHeaderView(viewH);
+//        lv_view.addFooterView(viewH);
 
     }
 

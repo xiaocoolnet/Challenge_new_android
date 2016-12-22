@@ -15,10 +15,11 @@
             android:textSize="16sp"
             android:textColor="@color/green"/>
         <TextView
+            android:id="@+id/tv_project_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:text="微校通"
+            android:text=""
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <View
@@ -34,13 +35,14 @@
         android:text="项目描述"
         android:layout_margin="10dp"/>
     <TextView
+        android:id="@+id/tv_project_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:textSize="15sp"
-        android:text="家校互动"/>
+        android:text=""/>
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"
@@ -58,9 +60,10 @@
         android:layerType="software"
         android:background="@drawable/dash_line" />
     <TextView
+        android:id="@+id/tv_advantage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="设计、画画"
+        android:text=""
         android:textSize="15sp"
         android:layout_margin="10dp"/>
 </LinearLayout>

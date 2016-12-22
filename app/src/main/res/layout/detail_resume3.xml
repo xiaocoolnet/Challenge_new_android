@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/white">
     <TextView
@@ -21,16 +22,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
         <TextView
+            android:id="@+id/tv_job_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="校酷"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <TextView
+            android:id="@+id/tv_job_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:text="2010.1-2014.5"
+            android:text=""
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
     <LinearLayout
@@ -45,10 +48,11 @@
             android:textColor="@color/black"
             android:textSize="16sp"/>
         <TextView
+            android:id="@+id/tv_job_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:text="技术专员"
+            android:text=""
             android:layout_marginLeft="10dp"/>
     </LinearLayout>
     <LinearLayout
@@ -62,12 +66,13 @@
             android:textSize="16sp"
             android:textColor="@color/black"
             android:text="专业技能"/>
-        <com.zhy.view.flowlayout.FlowLayout
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/fl_job_skill"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            zhy:max_select="-1"
             android:layout_marginLeft="10dp">
-
-        </com.zhy.view.flowlayout.FlowLayout>
+        </com.zhy.view.flowlayout.TagFlowLayout>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

@@ -53,6 +53,10 @@ public class Public_static_all {
     public static Boolean idprojectnamea = false;
     public static Boolean idprojectnameB = false;
     public static Boolean idprojectnameb = false;
+    public static Boolean idprojectnameC = false;
+    public static Boolean idprojectnamec = false;
+    public static Boolean idprojectnameD = false;
+    public static Boolean idprojectnamed = false;
 
     public static Boolean isintenttionA = false;
     public static Boolean isintenttiona = false;

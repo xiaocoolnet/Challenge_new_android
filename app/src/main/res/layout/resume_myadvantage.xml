@@ -9,6 +9,7 @@
         android:layout_height="@dimen/activity_layout_45">
         <include layout="@layout/title_back_compelete"/>
         <TextView
+            android:id="@+id/title_top"
             style="@style/title_text"
             android:text="我的优势"/>
         <com.example.chy.challenge.button.WaveView

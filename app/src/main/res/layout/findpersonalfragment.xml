@@ -41,7 +41,7 @@
     <com.example.chy.challenge.pnlllist.PullToRefreshListView
         android:id="@+id/pulllistview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/gray5"
         android:drawSelectorOnTop="false"
         android:scrollbars="none"

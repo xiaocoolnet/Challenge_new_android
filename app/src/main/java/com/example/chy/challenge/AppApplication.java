@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -24,7 +25,9 @@ public class AppApplication extends Application {
         super.onCreate();
         applicationContext = this;
         myApplication = new AppApplication();
-
+        //请求队列
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueueFile = Volley.newRequestQueue(this);
         initImageLoader();
     }
 

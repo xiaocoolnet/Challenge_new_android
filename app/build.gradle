@@ -5,10 +5,14 @@ android {
         config {
             keyAlias 'config'
             keyPassword '320306'
-            storeFile file('E:/githubtiaozhangaoxin/Challenge_android/app/debug.jks')
+            storeFile file('E:/Challenge_android/app/debug.jks')
             storePassword '320306'
         }
     }
+
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
     defaultConfig {

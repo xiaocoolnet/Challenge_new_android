@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.chy.challenge.NetInfo.NetBaseConstant;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -107,7 +109,7 @@ public class ViewHolder {
 
     public ViewHolder setImageByUrl(int viewId,String url){
         ImageView view = getView(viewId);
-        //ImgLoadUtil.display(NetConstantUrl.IMAGE_URL+url,view);
+        ImgLoadUtil.display(NetBaseConstant.NET_HOST+url,view);
         return this;
     }
 

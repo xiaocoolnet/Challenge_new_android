@@ -2,6 +2,8 @@ package com.example.chy.challenge.Findpersoanl.talentmain.talent.findpersonal;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -14,13 +16,18 @@ import android.widget.TextView;
 
 import com.example.chy.challenge.Findpersoanl.talentmain.talent.findpersonal.bean.FindPersonal_fragment_bean;
 import com.example.chy.challenge.NetInfo.NetBaseConstant;
+import com.example.chy.challenge.NetInfo.UserNetConstant;
 import com.example.chy.challenge.R;
 import com.example.chy.challenge.Utils.CommonAdapter;
 import com.example.chy.challenge.Utils.ImgLoadUtil;
+import com.example.chy.challenge.Utils.JsonResult;
 import com.example.chy.challenge.Utils.NoScrollListView;
+import com.example.chy.challenge.Utils.ToastUtil;
 import com.example.chy.challenge.Utils.ViewHolder;
+import com.example.chy.challenge.Utils.VolleyUtil;
 import com.example.chy.challenge.button.RevealButton;
 import com.example.chy.challenge.button.WaveView;
+import com.example.chy.challenge.login.register.register_bean.UserInfoBean;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
@@ -91,9 +98,17 @@ public class DetailFindPersonalActivity extends FragmentActivity {
     TextView btnChat;
     @BindView(R.id.ll_bottom2)
     LinearLayout llBottom2;
+    @BindView(R.id.btn_fenxiang)
+    WaveView btnFenxiang;
+    @BindView(R.id.btn_shoucang)
+    WaveView btnShoucang;
+    @BindView(R.id.iv_shoucang)
+    ImageView ivShoucang;
 
     private Context context;
     private FindPersonal_fragment_bean.DataBean findItem;
+    private UserInfoBean userInfoBean;
+    private boolean isCollected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,8 +117,34 @@ public class DetailFindPersonalActivity extends FragmentActivity {
         setContentView(R.layout.activity_detail_find_personal);
         ButterKnife.bind(this);
         context = this;
+        userInfoBean = new UserInfoBean(context);
         findItem = (FindPersonal_fragment_bean.DataBean) getIntent().getSerializableExtra("findItem");
         setData();
+        checkIsCollected();
+    }
+
+    private void checkIsCollected() {
+        String url = UserNetConstant.CHECKHADFAVORITE
+                + "&userid=" + userInfoBean.getUserid()
+                + "&object_id=" + findItem.getResumes_id()
+                + "&type=2";
+        VolleyUtil.VolleyGetRequest(this, url, new VolleyUtil.VolleyJsonCallback() {
+            @Override
+            public void onSuccess(String result) {
+                if (JsonResult.JSONparser(getBaseContext(), result)) {
+                    ivShoucang.setImageResource(R.mipmap.btn_isshoucang);
+                    isCollected = true;
+                } else {
+                    ivShoucang.setImageResource(R.mipmap.btn_shoucang);
+                    isCollected = false;
+                }
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
     }
 
     /**
@@ -151,23 +192,92 @@ public class DetailFindPersonalActivity extends FragmentActivity {
         tvAdvantage.setText(findItem.getAdvantage());
     }
 
-    @OnClick({R.id.back, R.id.btn_get_contact,R.id.btn_phone, R.id.btn_chat})
+    @OnClick({R.id.back, R.id.btn_get_contact, R.id.btn_phone, R.id.btn_chat, R.id.btn_fenxiang, R.id.btn_shoucang})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.back:
                 finish();
                 break;
+            //获取联系方式
             case R.id.btn_get_contact:
                 showDialog();
                 break;
+            //电话联系
             case R.id.btn_phone:
-
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + findItem.getPhone()));
+                startActivity(intent);
                 break;
+            //和他聊聊
             case R.id.btn_chat:
 
                 break;
+            //分享
+            case R.id.btn_fenxiang:
+
+                break;
+            //收藏
+            case R.id.btn_shoucang:
+                if(isCollected){
+                    cancelCollect();
+                }else{
+                    collect();
+                }
+                break;
         }
     }
+
+    /**
+     * 收藏
+     */
+    private void collect() {
+        String url = UserNetConstant.ADDFAVORITE
+                + "&userid=" + userInfoBean.getUserid()
+                + "&object_id=" + findItem.getResumes_id()
+                + "&type=2";
+        VolleyUtil.VolleyGetRequest(this, url, new VolleyUtil.VolleyJsonCallback() {
+            @Override
+            public void onSuccess(String result) {
+                if(JsonResult.JSONparser(context,result)){
+                    ToastUtil.showShort(context,"收藏成功");
+                    ivShoucang.setImageResource(R.mipmap.btn_isshoucang);
+                    isCollected = true;
+                }
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+    }
+
+    /**
+     * 取消收藏
+     */
+    private void cancelCollect() {
+        String url = UserNetConstant.CANCELFAVORITE
+                + "&userid=" + userInfoBean.getUserid()
+                + "&object_id=" + findItem.getResumes_id()
+                + "&type=2";
+        VolleyUtil.VolleyGetRequest(this, url, new VolleyUtil.VolleyJsonCallback() {
+            @Override
+            public void onSuccess(String result) {
+                if(JsonResult.JSONparser(context,result)){
+                    ToastUtil.showShort(context,"取消收藏成功");
+                    ivShoucang.setImageResource(R.mipmap.btn_shoucang);
+                    isCollected = false;
+                }
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+    }
+
+
 
     /**
      * 会员弹出框
@@ -227,5 +337,4 @@ public class DetailFindPersonalActivity extends FragmentActivity {
             }
         });
     }
-
 }

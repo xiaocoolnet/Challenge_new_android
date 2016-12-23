@@ -17,6 +17,34 @@
             android:text=""
             android:textColor="@color/white"
             android:textSize="@dimen/activity_text_18" />
+        <com.example.chy.challenge.button.WaveView
+            android:id="@+id/btn_fenxiang"
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/btn_shoucang">
+            <ImageView
+                android:src="@mipmap/btn_zhuanfa"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </com.example.chy.challenge.button.WaveView>
+        <com.example.chy.challenge.button.WaveView
+            android:id="@+id/btn_shoucang"
+            android:layout_width="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp">
+            <ImageView
+                android:id="@+id/iv_shoucang"
+                android:src="@mipmap/btn_shoucang"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </com.example.chy.challenge.button.WaveView>
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/ll_top"

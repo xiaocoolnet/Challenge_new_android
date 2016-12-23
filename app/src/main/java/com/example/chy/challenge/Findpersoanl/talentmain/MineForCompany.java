@@ -8,16 +8,15 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.chy.challenge.Findpersoanl.mine.Black_Friend;
-import com.example.chy.challenge.Findpersoanl.mine.Mine_Company_invitation;
 import com.example.chy.challenge.Findpersoanl.mine.Mine_Interview_Invitation;
 import com.example.chy.challenge.Findpersoanl.mine.Mine_recruitment;
 import com.example.chy.challenge.Findpersoanl.mine.Mine_reward;
 import com.example.chy.challenge.Findpersoanl.mine.Mine_vipinfo;
+import com.example.chy.challenge.Findpersoanl.mine.MyCollectActivity;
 import com.example.chy.challenge.Findpersoanl.mine.Set_Up;
 import com.example.chy.challenge.R;
 import com.example.chy.challenge.button.WaveView;
@@ -104,7 +103,7 @@ public class MineForCompany extends Fragment implements View.OnClickListener{
                 Toast.makeText(mContext,"暂未开通此功能",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mine_company_collection://我的收藏
-
+                startActivity(new Intent(mContext, MyCollectActivity.class));
                 break;
             case R.id.ming_company_reward://我的悬赏
 //                intent = new Intent(mContext, Mine_reward.class);

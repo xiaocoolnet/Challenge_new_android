@@ -130,4 +130,9 @@
         android:layout_height="match_parent"
         >
     </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_layout_1"
+        android:id="@+id/textview"
+        />
 </LinearLayout>

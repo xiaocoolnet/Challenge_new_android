@@ -35,6 +35,7 @@ import com.example.chy.challenge.button.WaveView;
 import com.example.chy.challenge.findcommany.Work_Searching;
 import com.example.chy.challenge.findcommany.chance.Find_Job;
 import com.example.chy.challenge.findcommany.chance.Find_work;
+import com.example.chy.challenge.findcommany.chance.Search_company;
 import com.example.chy.challenge.pnlllist.PullToRefreshBase;
 import com.example.chy.challenge.pnlllist.PullToRefreshListView;
 
@@ -138,6 +139,8 @@ public class Chance extends Fragment implements View.OnClickListener {
                     startActivity(intent);
                 break;
             case R.id.salary_search://搜索
+                intent = new Intent(mContext, Search_company.class);
+                startActivity(intent);
                 break;
 
         }

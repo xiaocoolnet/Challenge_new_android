@@ -5,60 +5,79 @@
     android:background="@color/white"
     android:orientation="vertical"
     >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/activity_layout_35"
-        android:text="红包"
-        android:gravity="center"
-        android:textColor="@color/green"
-        android:textSize="@dimen/activity_text_16"
-        />
-    <com.example.chy.challenge.button.RevealButton
-        android:id="@+id/pop_all_redenvelope"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:text="全部"
-        android:textColor="@color/gray4"
-        android:background="@null"
-        />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray2"
-        />
-    <com.example.chy.challenge.button.RevealButton
-        android:id="@+id/pop_post_redpacket"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:text="职位红包"
-        android:textColor="@color/gray4"
-        android:background="@null"
-        />
 
+        <TextView
+            android:id="@+id/pop_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_layout_35"
+            android:text="红包"
+            android:gravity="center"
+            android:textColor="@color/green"
+            android:textSize="@dimen/activity_text_16"
+            />
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:background="@color/gray2"
         />
-    <com.example.chy.challenge.button.RevealButton
-        android:id="@+id/popstate_Interview_redenvelope"
+    <LinearLayout
+        android:id="@+id/linear_pop"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:text="面试红包"
-        android:textColor="@color/gray4"
-        android:background="@null"
-        />
-    <View
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <com.example.chy.challenge.button.RevealButton
+            android:id="@+id/pop_all_redenvelope"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="全部"
+            android:textColor="@color/gray4"
+            android:background="@null"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray2"
+            />
+        <com.example.chy.challenge.button.RevealButton
+            android:id="@+id/pop_post_redpacket"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="职位红包"
+            android:textColor="@color/gray4"
+            android:background="@null"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray2"
+            />
+        <com.example.chy.challenge.button.RevealButton
+            android:id="@+id/popstate_Interview_redenvelope"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="面试红包"
+            android:textColor="@color/gray4"
+            android:background="@null"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray2"
+            />
+        <com.example.chy.challenge.button.RevealButton
+            android:id="@+id/popstate_inauguration_redenvelope"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="就职红包"
+            android:textColor="@color/gray4"
+            android:background="@null"
+            />
+    </LinearLayout>
+    <com.example.chy.challenge.Utils.NoScrollListView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/gray2"
-        />
-    <com.example.chy.challenge.button.RevealButton
-        android:id="@+id/popstate_inauguration_redenvelope"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:text="就职红包"
-        android:textColor="@color/gray4"
-        android:background="@null"
+        android:layout_height="100dp"
+        android:id="@+id/salary_listview"
+        android:visibility="gone"
         />
 </LinearLayout>

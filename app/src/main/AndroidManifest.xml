@@ -73,6 +73,7 @@
         <activity android:name=".findcommany.resume.Write_resume_education"/>
         <activity android:name=".findcommany.resume.Mine_Resume"/>
         <activity android:name=".Findpersoanl.mine.MyCollectActivity"/>
+        <activity android:name=".findcommany.chance.Search_company"/>
     </application>
 
 </manifest>

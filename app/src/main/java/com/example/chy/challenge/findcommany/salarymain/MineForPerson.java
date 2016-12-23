@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.chy.challenge.Findpersoanl.mine.Set_Up;
@@ -17,7 +16,6 @@ import com.example.chy.challenge.button.WaveView;
 import com.example.chy.challenge.findcommany.mine.Black_personal_Friend;
 import com.example.chy.challenge.findcommany.mine.Mine_personal_Collect;
 import com.example.chy.challenge.findcommany.mine.Submit_Resume;
-import com.example.chy.challenge.findcommany.mine.adapter.Black_personal_Adapter;
 
 /**
  * Created by 77588 on 2016/9/1.

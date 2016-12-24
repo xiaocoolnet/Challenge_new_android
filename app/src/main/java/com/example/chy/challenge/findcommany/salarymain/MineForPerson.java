@@ -10,11 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.chy.challenge.Findpersoanl.mine.MyCollectActivity;
 import com.example.chy.challenge.Findpersoanl.mine.Set_Up;
 import com.example.chy.challenge.R;
 import com.example.chy.challenge.button.WaveView;
 import com.example.chy.challenge.findcommany.mine.Black_personal_Friend;
-import com.example.chy.challenge.findcommany.mine.Mine_personal_Collect;
 import com.example.chy.challenge.findcommany.mine.Submit_Resume;
 
 /**
@@ -57,7 +57,7 @@ public class MineForPerson extends Fragment implements View.OnClickListener{
 
         switch (view.getId()){
             case R.id.mine_personal_collection://我的收藏
-                intent = new Intent(mContext, Mine_personal_Collect.class);
+                intent = new Intent(mContext, MyCollectActivity.class);
                 startActivity(intent);
                 break;
             case R.id.ming_personal_reward://我的奖金

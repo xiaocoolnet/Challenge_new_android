@@ -60,7 +60,6 @@
         <activity android:name=".findcommany.Work_Searching" />
         <activity android:name=".findcommany.mine.Black_personal_Friend" />
         <activity android:name=".findcommany.mine.Submit_Resume" />
-        <activity android:name=".findcommany.mine.Mine_personal_Collect" />
         <activity android:name=".findcommany.findjob.Job_boss_detail" />
         <activity android:name=".findcommany.findjob.JobInfo" />
         <activity android:name=".findcommany.findwork.WorkInfo" />
@@ -76,6 +75,8 @@
         <activity android:name=".Findpersoanl.mine.MyCompanyInfoActivity" />
         <activity android:name=".Findpersoanl.mine.EditInfoActivity" />
         <activity android:name=".Findpersoanl.mine.SelectIndustryActivity"></activity>
+        <activity android:name=".findcommany.mine.MineCollectActivity"></activity>
+        <activity android:name=".findcommany.findjob.Job_Evaluation_interview"></activity>
     </application>
 
 </manifest>

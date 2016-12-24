@@ -346,7 +346,6 @@ public class FindPersonalBean implements Serializable{
             public void setDescription_job(String description_job) {
                 this.description_job = description_job;
             }
-
             public String getCreate_time() {
                 return create_time;
             }

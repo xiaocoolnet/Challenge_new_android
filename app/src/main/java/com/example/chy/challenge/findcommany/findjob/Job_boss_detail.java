@@ -237,7 +237,9 @@ public class Job_boss_detail extends Activity implements View.OnClickListener{
                 finish();
                 break;
             case R.id.evaluation_the_interview:
-                Toast.makeText(mContext,"此功能暂未开放",Toast.LENGTH_SHORT).show();
+                intent = new Intent(mContext,Job_Evaluation_interview.class);
+                intent.putExtra("companyid",String.valueOf(companyid));
+                startActivity(intent);
                 break;
         }
     }

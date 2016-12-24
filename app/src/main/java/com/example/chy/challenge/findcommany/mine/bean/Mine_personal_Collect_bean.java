@@ -1,19 +1,19 @@
 package com.example.chy.challenge.findcommany.mine.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Administrator on 2016/12/5 0005.
  */
 
-public class Mine_personal_Collect_bean {
+public class Mine_personal_Collect_bean implements Serializable{
 
     /**
      * status : success
      * data : [{"f_id":"73","f_userid":"301","f_title":"职位7","f_description":"","f_type":"1","f_object_id":"8","f_create_time":"","realname":"lala","myjob":"iOS","jobid":"8","userid":"301","jobtype":"技术专员/助理","work_property":"兼职","title":"职位7","skill":"1个技能","salary":"1至1","experience":"不限","education":"大专","city":"上海市-上海市","address":"The ","description_job":"The ","create_time":"","welfare":"","logo":"avatar20161124024739301.png","companyid":"1","company_name":"北京互联科技有限公司","company_web":"www.xiaocool.com","industry":"电子商务","count":"应届生","financing":"不限","authentication":"","company_score":"","distance":"","com_introduce":"","produte_info":""}]
      */
 
-    private String status;
     /**
      * f_id : 73
      * f_userid : 301
@@ -51,26 +51,6 @@ public class Mine_personal_Collect_bean {
      * com_introduce :
      * produte_info :
      */
-
-    private List<DataBean> data;
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public List<DataBean> getData() {
-        return data;
-    }
-
-    public void setData(List<DataBean> data) {
-        this.data = data;
-    }
-
-    public static class DataBean {
         private String f_id;
         private String f_userid;
         private String f_title;
@@ -386,5 +366,4 @@ public class Mine_personal_Collect_bean {
         public void setProdute_info(String produte_info) {
             this.produte_info = produte_info;
         }
-    }
 }

@@ -93,6 +93,7 @@
                                 android:orientation="horizontal">
                                 <!--用户名-->
                                 <TextView
+                                    android:id="@+id/tv_name"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
@@ -128,7 +129,8 @@
                         android:layout_marginRight="@dimen/activity_layout_10"
                         android:background="@drawable/border_tv_00green"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="@dimen/activity_layout_29"

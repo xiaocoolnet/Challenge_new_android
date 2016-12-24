@@ -53,6 +53,7 @@ public class MyCollectActivity extends Activity {
     private String mResult;
     private boolean state = false; //删除选择框的开关
     private List<String> selected; //记录选择item的id集合
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,40 +96,40 @@ public class MyCollectActivity extends Activity {
     private void setAdpter() {
         myCollectBeans.clear();
         myCollectBeans.addAll(getBeanFromJson(mResult));
-        adapter1 = new CommonAdapter<MyCollectBean>(context,myCollectBeans,R.layout.item_collect_deletable) {
+        adapter1 = new CommonAdapter<MyCollectBean>(context, myCollectBeans, R.layout.item_collect_deletable) {
             @Override
             public void convert(ViewHolder holder, MyCollectBean myCollectBean) {
-                holder.setText(R.id.adapter_realname,myCollectBean.getRealname())
-                        .setImageResource(R.id.adapter_realname_sex,myCollectBean.getSex().equals("1")?R.mipmap.ic_nansheng:R.mipmap.ic_nvsheng)
-                        .setText(R.id.adapter_position_type,myCollectBean.getPosition_type())
-                        .setImageByUrl(R.id.adapter_head_image,myCollectBean.getPhoto())
-                        .setText(R.id.adapter_late_ornowe,myCollectBean.getJobstate().equals("离职")?"曾任":"现任")
-                        .setText(R.id.adapter_myjob,myCollectBean.getMyjob())
-                        .setText(R.id.adapter_company,myCollectBean.getCompany())
-                        .setText(R.id.adapter_salary,myCollectBean.getWantsalary())
-                        .setText(R.id.adapter_personal_profile,myCollectBean.getAdvantage())
-                        .setText(R.id.adapter_location_city,myCollectBean.getCity())
-                        .setText(R.id.adapter_jobtime_worklife,myCollectBean.getWork_life())
-                        .setText(R.id.adapter_personal_degree, myCollectBean.getEducation().size() > 0 ? myCollectBean.getEducation().get(0).getDegree():"")
+                holder.setText(R.id.adapter_realname, myCollectBean.getRealname())
+                        .setImageResource(R.id.adapter_realname_sex, myCollectBean.getSex().equals("1") ? R.mipmap.ic_nansheng : R.mipmap.ic_nvsheng)
+                        .setText(R.id.adapter_position_type, myCollectBean.getPosition_type())
+                        .setImageByUrl(R.id.adapter_head_image, myCollectBean.getPhoto())
+                        .setText(R.id.adapter_late_ornowe, myCollectBean.getJobstate().equals("离职") ? "曾任" : "现任")
+                        .setText(R.id.adapter_myjob, myCollectBean.getMyjob())
+                        .setText(R.id.adapter_company, myCollectBean.getCompany())
+                        .setText(R.id.adapter_salary, myCollectBean.getWantsalary())
+                        .setText(R.id.adapter_personal_profile, myCollectBean.getAdvantage())
+                        .setText(R.id.adapter_location_city, myCollectBean.getCity())
+                        .setText(R.id.adapter_jobtime_worklife, myCollectBean.getWork_life())
+                        .setText(R.id.adapter_personal_degree, myCollectBean.getEducation().size() > 0 ? myCollectBean.getEducation().get(0).getDegree() : "")
                         .setText(R.id.adapter_work_property, myCollectBean.getWork_property());
                 holder.getView(R.id.rl_check).setVisibility(View.GONE);
 
             }
         };
-        adapter2 = new CommonAdapter<MyCollectBean>(context,myCollectBeans,R.layout.item_collect_deletable) {
+        adapter2 = new CommonAdapter<MyCollectBean>(context, myCollectBeans, R.layout.item_collect_deletable) {
             @Override
             public void convert(ViewHolder holder, final MyCollectBean myCollectBean) {
-                holder.setText(R.id.adapter_realname,myCollectBean.getRealname())
-                        .setImageResource(R.id.adapter_realname_sex,myCollectBean.getSex().equals("1")?R.mipmap.ic_nansheng:R.mipmap.ic_nvsheng)
-                        .setText(R.id.adapter_position_type,myCollectBean.getPosition_type())
-                        .setImageByUrl(R.id.adapter_head_image,myCollectBean.getPhoto())
-                        .setText(R.id.adapter_late_ornowe,myCollectBean.getJobstate().equals("离职")?"曾任":"现任")
-                        .setText(R.id.adapter_myjob,myCollectBean.getMyjob())
-                        .setText(R.id.adapter_company,myCollectBean.getCompany())
-                        .setText(R.id.adapter_salary,myCollectBean.getWantsalary())
-                        .setText(R.id.adapter_personal_profile,myCollectBean.getAdvantage())
-                        .setText(R.id.adapter_location_city,myCollectBean.getCity())
-                        .setText(R.id.adapter_jobtime_worklife,myCollectBean.getWork_life())
+                holder.setText(R.id.adapter_realname, myCollectBean.getRealname())
+                        .setImageResource(R.id.adapter_realname_sex, myCollectBean.getSex().equals("1") ? R.mipmap.ic_nansheng : R.mipmap.ic_nvsheng)
+                        .setText(R.id.adapter_position_type, myCollectBean.getPosition_type())
+                        .setImageByUrl(R.id.adapter_head_image, myCollectBean.getPhoto())
+                        .setText(R.id.adapter_late_ornowe, myCollectBean.getJobstate().equals("离职") ? "曾任" : "现任")
+                        .setText(R.id.adapter_myjob, myCollectBean.getMyjob())
+                        .setText(R.id.adapter_company, myCollectBean.getCompany())
+                        .setText(R.id.adapter_salary, myCollectBean.getWantsalary())
+                        .setText(R.id.adapter_personal_profile, myCollectBean.getAdvantage())
+                        .setText(R.id.adapter_location_city, myCollectBean.getCity())
+                        .setText(R.id.adapter_jobtime_worklife, myCollectBean.getWork_life())
                         .setText(R.id.adapter_personal_degree, myCollectBean.getEducation().size() > 0 ? myCollectBean.getEducation().get(0).getDegree() : "")
                         .setText(R.id.adapter_work_property, myCollectBean.getWork_property());
                 holder.getView(R.id.rl_check).setVisibility(View.VISIBLE);
@@ -136,38 +137,40 @@ public class MyCollectActivity extends Activity {
                 cb.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (cb.isChecked()){
+                        if (cb.isChecked()) {
                             add(myCollectBean.getResumes_id());
-                        }else{
+                        } else {
                             remove(myCollectBean.getResumes_id());
                         }
                     }
                 });
             }
         };
-        if(state){
+        if (state) {
             lvCollect.setAdapter(adapter2);
-        }else{
+        } else {
             lvCollect.setAdapter(adapter1);
         }
     }
 
     /**
      * 从集合中移除选中id
+     *
      * @param resumes_id
      */
     private void remove(String resumes_id) {
-        if(selected.contains(resumes_id)){
+        if (selected.contains(resumes_id)) {
             selected.remove(resumes_id);
         }
     }
 
     /**
      * 添加选中id到集合中
+     *
      * @param resumes_id
      */
     private void add(String resumes_id) {
-        if(!selected.contains(resumes_id)){
+        if (!selected.contains(resumes_id)) {
             selected.add(resumes_id);
         }
     }
@@ -194,15 +197,63 @@ public class MyCollectActivity extends Activity {
                 setAdpter();
                 break;
             case R.id.tv_delete:
-                ToastUtil.showShort(context,selected.toString());
-                selected.clear();
-                state = false;
-                btnDelete.setVisibility(View.VISIBLE);
-                btnCancel.setVisibility(View.GONE);
-                tvDelete.setVisibility(View.GONE);
-                getData();
+                deleteMyCollect();
                 break;
         }
+    }
+
+    /**
+     * 删除我的收藏
+     */
+    private void deleteMyCollect() {
+        String url = UserNetConstant.CANCELFAVORITE
+                + "&userid=" + userInfoBean.getUserid()
+                + "&object_id=" + listToString()
+                + "&type=2";
+        VolleyUtil.VolleyGetRequest(this, url, new VolleyUtil.VolleyJsonCallback() {
+            @Override
+            public void onSuccess(String result) {
+                if(JsonResult.JSONparser(context,result)){
+                    ToastUtil.showShort(context,"删除成功");
+                    selected.clear();
+                    state = false;
+                    btnDelete.setVisibility(View.VISIBLE);
+                    btnCancel.setVisibility(View.GONE);
+                    tvDelete.setVisibility(View.GONE);
+                    getData();
+                }else{
+                    ToastUtil.showShort(context,"删除失败");
+                    selected.clear();
+                    state = false;
+                    btnDelete.setVisibility(View.VISIBLE);
+                    btnCancel.setVisibility(View.GONE);
+                    tvDelete.setVisibility(View.GONE);
+                    getData();
+                }
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+
+    }
+
+    /**
+     * @return
+     */
+    private String listToString() {
+        String str = "";
+        if (selected.size() == 0) {
+            return "";
+        } else {
+            for (int i = 0; i < selected.size() - 1; i++) {
+                str += selected.get(i) + ",";
+            }
+            str += selected.get(selected.size() - 1);
+        }
+        return str;
     }
 
     private List<MyCollectBean> getBeanFromJson(String result) {

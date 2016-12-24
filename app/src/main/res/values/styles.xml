@@ -10,7 +10,9 @@
     <!--<style name="AppBaseTheme" parent="android:Theme.Light"></style>-->
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light"></style>
 
-    <style name="AppTheme" parent="AppBaseTheme"></style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="actionSheetStyle">@style/ActionSheetStyleiOS7</item>
+    </style>
 
     <style name="main_tab_button">
         <item name="android:textColor">@color/gray3</item>

@@ -8,7 +8,9 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chy.challenge.Findpersoanl.mine.Black_Friend;
@@ -17,10 +19,14 @@ import com.example.chy.challenge.Findpersoanl.mine.Mine_recruitment;
 import com.example.chy.challenge.Findpersoanl.mine.Mine_reward;
 import com.example.chy.challenge.Findpersoanl.mine.Mine_vipinfo;
 import com.example.chy.challenge.Findpersoanl.mine.MyCollectActivity;
+import com.example.chy.challenge.Findpersoanl.mine.MyCompanyInfoActivity;
 import com.example.chy.challenge.Findpersoanl.mine.Set_Up;
+import com.example.chy.challenge.NetInfo.NetBaseConstant;
 import com.example.chy.challenge.R;
+import com.example.chy.challenge.Utils.ImgLoadUtil;
 import com.example.chy.challenge.button.WaveView;
 import com.example.chy.challenge.login.register.Register_personal_info;
+import com.example.chy.challenge.login.register.register_bean.UserInfoBean;
 
 /**
  * Created by 77588 on 2016/9/1.
@@ -31,6 +37,9 @@ public class MineForCompany extends Fragment implements View.OnClickListener{
     private Context mContext;
     private Intent intent;
     private LinearLayout mine_vip;
+    private ImageView iv_header;
+    private TextView tv_name;
+    private UserInfoBean userInfoBean;
 
     @Nullable
     @Override
@@ -41,7 +50,19 @@ public class MineForCompany extends Fragment implements View.OnClickListener{
         return rootView;
     }
 
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        userInfoBean = new UserInfoBean(mContext);
+        ImgLoadUtil.display(NetBaseConstant.NET_HOST + userInfoBean.getPhoto(),iv_header);
+        tv_name.setText(userInfoBean.getRealname());
+    }
+
     private void initview() {
+        iv_header = (ImageView) rootView.findViewById(R.id.mine_company_photo);
+        tv_name = (TextView) rootView.findViewById(R.id.tv_name);
+
         company_setting = (WaveView) rootView.findViewById(R.id.mine_company_setting);//设置
         company_setting.setOnClickListener(this);
 
@@ -98,9 +119,7 @@ public class MineForCompany extends Fragment implements View.OnClickListener{
                 startActivity(intent);
                 break;
             case R.id.mine_company_information://我的公司信息
-//                intent = new Intent(mContext, Mine_Company_invitation.class);
-//                startActivity(intent);
-                Toast.makeText(mContext,"暂未开通此功能",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(mContext, MyCompanyInfoActivity.class));
                 break;
             case R.id.mine_company_collection://我的收藏
                 startActivity(new Intent(mContext, MyCollectActivity.class));

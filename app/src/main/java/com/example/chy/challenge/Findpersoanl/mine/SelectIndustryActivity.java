@@ -11,7 +11,7 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.chy.challenge.Findpersoanl.mine.bean.CompanyIndustry;
+import com.example.chy.challenge.Findpersoanl.mine.bean.Dictionary;
 import com.example.chy.challenge.NetInfo.UserNetConstant;
 import com.example.chy.challenge.R;
 import com.example.chy.challenge.Utils.JsonResult;
@@ -44,7 +44,7 @@ public class SelectIndustryActivity extends Activity {
     TextView btnCannotFound;
 
     private Context context;
-    private List<CompanyIndustry> industries;
+    private List<Dictionary> industries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,14 +153,14 @@ public class SelectIndustryActivity extends Activity {
                 }
                 Intent intent = new Intent();
                 intent.putExtra("value",content);
-                setResult(RESULT_OK,intent);
+                setResult(RESULT_OK, intent);
                 dialog.dismiss();
                 finish();
             }
         });
     }
 
-    private List<CompanyIndustry> getBeanFromJson(String result) {
+    private List<Dictionary> getBeanFromJson(String result) {
         String data = "";
         try {
             JSONObject json = new JSONObject(result);
@@ -168,7 +168,7 @@ public class SelectIndustryActivity extends Activity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return new Gson().fromJson(data, new TypeToken<List<CompanyIndustry>>() {
+        return new Gson().fromJson(data, new TypeToken<List<Dictionary>>() {
         }.getType());
     }
 }

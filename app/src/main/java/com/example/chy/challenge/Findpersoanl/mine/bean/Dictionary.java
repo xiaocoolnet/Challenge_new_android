@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Administrator on 2016/12/23 0023.
  */
-public class CompanyIndustry implements Serializable{
+public class Dictionary implements Serializable{
 
     /**
      * term_id : 68

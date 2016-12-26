@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'config'
             keyPassword '320306'
-            storeFile file('E:/githubtiaozhangaoxin/Challenge_android/app/debug.jks')
+            storeFile file('E:/Challenge_android/app/debug.jks')
             storePassword '320306'
         }
     }

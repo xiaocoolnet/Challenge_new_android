@@ -831,4 +831,20 @@ public class UserRequest {
             }
         }.start();
     }
+
+    public void GetChatListData(final String uid,final int KEY){
+        new Thread(){
+            Message msg = Message.obtain();
+
+            @Override
+            public void run() {
+                List<NameValuePair> parmas = new ArrayList<NameValuePair>();
+                parmas.add(new BasicNameValuePair("uid",uid));
+                String result = NetBaseUtils.getResponseForImg(UserNetConstant.GET_CHAT_LIST_DATA,parmas,mContext);
+                msg.what = KEY;
+                msg.obj = result;
+                handler.sendMessage(msg);
+            }
+        }.start();
+    }
 }

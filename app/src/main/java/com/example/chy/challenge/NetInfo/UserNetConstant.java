@@ -82,4 +82,6 @@ public interface UserNetConstant extends NetBaseConstant {
     public final static String PUBLISHPROJECT = NET_BASE_HOST + "&a=PublishProject";
     //获取教育经历
     public final static String GETMYEDULIST = NET_BASE_HOST + "&a=getMyEduList";
+    //获取消息列表
+    public final static String GET_CHAT_LIST_DATA = NET_BASE_HOST + "&a=xcGetChatListData";
 }

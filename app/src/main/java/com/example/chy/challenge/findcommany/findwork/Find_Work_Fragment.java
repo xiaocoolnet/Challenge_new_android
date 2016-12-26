@@ -220,13 +220,15 @@ public class Find_Work_Fragment extends Fragment{
 
         }else if ("评价".equals(pagename)){
 
-        }else if ("薪资".equals(pagename)){
-
         }else if ("职位红包".equals(pagename)){
 
         }else if ("面试红包".equals(pagename)){
 
         }else if ("就职红包".equals(pagename)){
+
+        }else if ("全部红包".equals(pagename)){
+
+        }else{
 
         }
         if (NetBaseUtils.isConnnected(mContext)) {

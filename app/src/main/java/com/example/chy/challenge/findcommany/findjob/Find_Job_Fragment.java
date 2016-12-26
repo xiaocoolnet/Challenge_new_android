@@ -230,8 +230,6 @@ public class Find_Job_Fragment extends Fragment{
     private void findwork() {
         if ("最新".equals(pagename)){
 
-        }else if ("规模".equals(pagename)){
-
         }else if ("范围".equals(pagename)){
 
         }

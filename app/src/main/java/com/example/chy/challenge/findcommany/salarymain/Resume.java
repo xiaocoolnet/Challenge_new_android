@@ -252,7 +252,7 @@ public class Resume extends Fragment implements View.OnClickListener {
                 tv_project_experience.setTextColor(getResources().getColor(R.color.green));
             }
             if (findlistbean.getWork_property() != null && findlistbean.getWork_property().length() > 0
-                    && findlistbean.getAddress().substring(0, 3) != null && findlistbean.getAddress().substring(0, 3).length() > 0
+                    && findlistbean.getAddress() != null && findlistbean.getAddress().length() > 0
                     && findlistbean.getPosition_type() != null && findlistbean.getPosition_type().length() > 0
                     && findlistbean.getCategories() != null && findlistbean.getCategories().length() > 0
                     && findlistbean.getWantsalary() != null && findlistbean.getWantsalary().length() > 0

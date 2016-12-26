@@ -53,4 +53,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.0.0'
     //流式布局
     compile files('libs/weibosdkcore_release.jar')
+    compile 'com.baoyz.actionsheet:library:1.1.7'
+    compile 'cn.finalteam:galleryfinal:1.4.6'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

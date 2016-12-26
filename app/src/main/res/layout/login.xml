@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/ic_beijing01">
+    android:background="@mipmap/ic_beijing03">
     <ImageView
         android:layout_marginTop="@dimen/activity_layout_50"
         android:layout_marginBottom="@dimen/activity_layout_50"

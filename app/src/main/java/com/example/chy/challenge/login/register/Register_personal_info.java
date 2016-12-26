@@ -64,7 +64,6 @@ public class Register_personal_info extends Activity implements View.OnClickList
     private static final int PHOTO_REQUEST_CUT = 3;// 相册
     private static final int PHOTO_REQUEST_CAMERA = 1;// 拍照
     private static final int PHOTO_REQUEST_ALBUM = 2;// 剪裁
-    private Drawable drawable;
     private ProgressDialog dialog;
 
 

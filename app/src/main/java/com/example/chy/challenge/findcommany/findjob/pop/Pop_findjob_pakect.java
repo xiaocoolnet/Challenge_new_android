@@ -1,4 +1,4 @@
-package com.example.chy.challenge.findcommany.findwork.pop;
+package com.example.chy.challenge.findcommany.findjob.pop;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -23,12 +23,9 @@ import com.example.chy.challenge.R;
 import com.example.chy.challenge.Utils.NetBaseUtils;
 import com.example.chy.challenge.Utils.NoScrollListView;
 import com.example.chy.challenge.button.RevealButton;
-import com.example.chy.challenge.findcommany.SalaryMain;
+import com.example.chy.challenge.findcommany.chance.Find_Job;
 import com.example.chy.challenge.findcommany.chance.Find_work;
-import com.example.chy.challenge.findcommany.salarymain.Chance;
 import com.example.chy.challenge.login.register.adapter.List_Adapter;
-import com.example.chy.challenge.login.register.commany_info.Register_Mine_intention;
-import com.example.chy.challenge.login.register.register_bean.UserInfoBean;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,9 +38,9 @@ import java.util.List;
  * Created by Administrator on 2016/10/14 0014.
  */
 
-public class Pop_findwork_pakect implements PopupWindow.OnDismissListener,View.OnClickListener{
+public class Pop_findjob_pakect implements PopupWindow.OnDismissListener{
     private static final int GETDICTIONARYLIST = 1;
-    private Find_work mactivity;
+    private Find_Job mactivity;
     private View view,rootview;
     private RevealButton pop_all_redenvelope,pop_post_redpacket,popstate_Interview_redenvelope,popstate_inauguration_redenvelope;
     private PopupWindow popupWindow;
@@ -91,7 +88,7 @@ public class Pop_findwork_pakect implements PopupWindow.OnDismissListener,View.O
 
 
 
-    public Pop_findwork_pakect(Find_work mactivity) {
+    public Pop_findjob_pakect(Find_Job mactivity) {
         this.mactivity = mactivity;
         view = LayoutInflater.from(mactivity.getActivity()).inflate(R.layout.pop_pack, null);
         pop_title = (TextView) view.findViewById(R.id.pop_title);
@@ -116,27 +113,27 @@ public class Pop_findwork_pakect implements PopupWindow.OnDismissListener,View.O
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.pop_all_redenvelope://全部
-                mactivity.find_workfragment();
-                dissmiss();
-                break;
-            case R.id.pop_post_redpacket://职位红包
-                mactivity.find_workfragment2();
-                dissmiss();
-                break;
-            case R.id.popstate_Interview_redenvelope://面试红包
-                mactivity.find_workfragment3();
-                dissmiss();
-                break;
-            case R.id.popstate_inauguration_redenvelope://就职红包
-                mactivity.find_workfragment4();
-                dissmiss();
-                break;
-        }
-    }
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()){
+//            case R.id.pop_all_redenvelope://全部
+//                mactivity.find_workfragment();
+//                dissmiss();
+//                break;
+//            case R.id.pop_post_redpacket://职位红包
+//                mactivity.find_workfragment2();
+//                dissmiss();
+//                break;
+//            case R.id.popstate_Interview_redenvelope://面试红包
+//                mactivity.find_workfragment3();
+//                dissmiss();
+//                break;
+//            case R.id.popstate_inauguration_redenvelope://就职红包
+//                mactivity.find_workfragment4();
+//                dissmiss();
+//                break;
+//        }
+//    }
     /**
      * 消除弹窗
      */
@@ -148,32 +145,33 @@ public class Pop_findwork_pakect implements PopupWindow.OnDismissListener,View.O
      */
     public void showAsDropDown(View parent,String pagetype) {
         this.pagetype = pagetype;
-        if ("salary".equals(pagetype)){
+        if ("scale".equals(pagetype)){
             salary_listview.setVisibility(View.VISIBLE);
             linear_pop.setVisibility(View.GONE);
             salary_listview.setDivider(null);
-            pop_title.setText("薪资");
+            pop_title.setText("规模");
             if (NetBaseUtils.isConnnected(mactivity.getActivity())) {
-                new UserRequest(mactivity.getActivity(), handler).GETDICTIONARYLIST("5",GETDICTIONARYLIST);
+                new UserRequest(mactivity.getActivity(), handler).GETDICTIONARYLIST("18",GETDICTIONARYLIST);
             } else {
                 Toast.makeText(mactivity.getActivity(), R.string.net_error, Toast.LENGTH_SHORT).show();
             }
             salary_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    mactivity.find_workfragment5(idlist.get(position));
+                    mactivity.find_jobfragment(idlist.get(position));
                     dissmiss();
                 }
             });
-        }else if ("packet".equals(pagetype)){
-            salary_listview.setVisibility(View.GONE);
-            linear_pop.setVisibility(View.VISIBLE);
-            pop_all_redenvelope.setOnClickListener(this);
-            pop_post_redpacket.setOnClickListener(this);
-            popstate_Interview_redenvelope.setOnClickListener(this);
-            popstate_inauguration_redenvelope.setOnClickListener(this);
-            pop_title.setText("红包");
         }
+//        else if ("packet".equals(pagetype)){
+//            salary_listview.setVisibility(View.GONE);
+//            linear_pop.setVisibility(View.VISIBLE);
+//            pop_all_redenvelope.setOnClickListener(this);
+//            pop_post_redpacket.setOnClickListener(this);
+//            popstate_Interview_redenvelope.setOnClickListener(this);
+//            popstate_inauguration_redenvelope.setOnClickListener(this);
+//            pop_title.setText("红包");
+//        }
         int[] location = new int[2];
         parent.getLocationOnScreen(location);
         WindowManager manager = (WindowManager) mactivity.getActivity()

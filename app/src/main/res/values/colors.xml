@@ -31,5 +31,7 @@
     <color name="dialog_cancel">#D4D4D4</color>
     <color name="dialog_sure">#8ED4B3</color>
     <color name="bg_red">#FF4B45</color>
+    <color name="green3">#76DD9E</color>
+    <color name="green4">#58BF80</color>
 
 </resources>
